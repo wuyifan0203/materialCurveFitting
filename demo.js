@@ -19,7 +19,6 @@ const Xk = ({
         c,//g
         d //h
     }) => {
-        // console.log("w:",w,"[a,b,c,d]:",[a,b,c,d]);
         XkTimes+=1;
         const G2 = c * c;
         const W2 = w * w;;
@@ -66,11 +65,7 @@ const materialCurveFitting = ({
     const RwList=[]
     let list = materialParams.filter(e => e.wavelength <= wavelength_max && e.wavelength >= wavelength_min);
     const Woo = 1;
-
-  
-
-
-
+    
     let subReal=0;
     let subVirtual=0;
 
