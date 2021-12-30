@@ -1,0 +1,3589 @@
+const materialParams = [{
+    epsIm: 0.0095648,
+    epsRe: 11.66905404,
+    frequency: 1.20E+12,
+    refIm: 0.0014,
+    refRe: 3.416,
+    wavelength: 0.00025
+}, {
+    epsIm: 0.006833,
+    epsRe: 11.67247125,
+    frequency: 1.50E+12,
+    refIm: 0.001,
+    refRe: 3.4165,
+    wavelength: 0.0002
+}, {
+    epsIm: 0.00492048,
+    epsRe: 11.67588848,
+    frequency: 1.80E+12,
+    refIm: 0.00072,
+    refRe: 3.417,
+    wavelength: 0.0001667
+}, {
+    epsIm: 0.00293948,
+    epsRe: 11.68272382,
+    frequency: 2.40E+12,
+    refIm: 0.00043,
+    refRe: 3.418,
+    wavelength: 0.000125
+}, {
+    epsIm: 0.00198273,
+    epsRe: 11.68614217,
+    frequency: 3.00E+12,
+    refIm: 0.00029,
+    refRe: 3.4185,
+    wavelength: 0.0001
+}, {
+    epsIm: 0.00157274,
+    epsRe: 11.68956095,
+    frequency: 3.60E+12,
+    refIm: 0.00023,
+    refRe: 3.419,
+    wavelength: 8.33E-05
+}, {
+    epsIm: 0.001299296,
+    epsRe: 11.6909286,
+    frequency: 4.20E+12,
+    refIm: 0.00019,
+    refRe: 3.4192,
+    wavelength: 7.14E-05
+}, {
+    epsIm: 0.00116263,
+    epsRe: 11.69298022,
+    frequency: 4.80E+12,
+    refIm: 0.00017,
+    refRe: 3.4195,
+    wavelength: 6.25E-05
+}, {
+    epsIm: 0,
+    epsRe: 11.69434809,
+    frequency: 6.00E+12,
+    refIm: 0,
+    refRe: 3.4197,
+    wavelength: 5.00E-05
+}, {
+    epsIm: 0,
+    epsRe: 11.69571601,
+    frequency: 7.49E+12,
+    refIm: 0,
+    refRe: 3.4199,
+    wavelength: 4.00E-05
+}, {
+    epsIm: 0,
+    epsRe: 11.6964,
+    frequency: 9.89E+12,
+    refIm: 0,
+    refRe: 3.42,
+    wavelength: 3.03E-05
+}, {
+    epsIm: 0.000625878,
+    epsRe: 11.697084,
+    frequency: 1.20E+13,
+    refIm: 9.15E-05,
+    refRe: 3.4201,
+    wavelength: 2.50E-05
+}, {
+    epsIm: 0.001956469,
+    epsRe: 11.69913608,
+    frequency: 1.50E+13,
+    refIm: 0.000286,
+    refRe: 3.4204,
+    wavelength: 2.00E-05
+}, {
+    epsIm: 0,
+    epsRe: 11.70118849,
+    frequency: 2.00E+13,
+    refIm: 0,
+    refRe: 3.4207,
+    wavelength: 1.50E-05
+}, {
+    epsIm: 0,
+    epsRe: 11.70187264,
+    frequency: 2.07E+13,
+    refIm: 0,
+    refRe: 3.4208,
+    wavelength: 1.45E-05
+}, {
+    epsIm: 0,
+    epsRe: 11.70255681,
+    frequency: 2.22E+13,
+    refIm: 0,
+    refRe: 3.4209,
+    wavelength: 1.35E-05
+}, {
+    epsIm: 0.000462587,
+    epsRe: 11.70666225,
+    frequency: 3.00E+13,
+    refIm: 6.76E-05,
+    refRe: 3.4215,
+    wavelength: 1.00E-05
+}, {
+    epsIm: 0,
+    epsRe: 11.70939961,
+    frequency: 3.33E+13,
+    refIm: 0,
+    refRe: 3.4219,
+    wavelength: 9.00E-06
+}, {
+    epsIm: 0.000104725,
+    epsRe: 11.71282176,
+    frequency: 3.75E+13,
+    refIm: 1.53E-05,
+    refRe: 3.4224,
+    wavelength: 8.00E-06
+}, {
+    epsIm: 0,
+    epsRe: 11.71761361,
+    frequency: 4.28E+13,
+    refIm: 0,
+    refRe: 3.4231,
+    wavelength: 7.00E-06
+}, {
+    epsIm: 0,
+    epsRe: 11.72514564,
+    frequency: 5.00E+13,
+    refIm: 0,
+    refRe: 3.4242,
+    wavelength: 6.00E-06
+}, {
+    epsIm: 1.36E-06,
+    epsRe: 11.73816121,
+    frequency: 6.00E+13,
+    refIm: 1.99E-07,
+    refRe: 3.4261,
+    wavelength: 5.00E-06
+}, {
+    epsIm: 0,
+    epsRe: 11.76078436,
+    frequency: 7.49E+13,
+    refIm: 0,
+    refRe: 3.4294,
+    wavelength: 4.00E-06
+}, {
+    epsIm: 0,
+    epsRe: 11.77931041,
+    frequency: 8.57E+13,
+    refIm: 0,
+    refRe: 3.4321,
+    wavelength: 3.50E-06
+}, {
+    epsIm: 0,
+    epsRe: 11.78342929,
+    frequency: 8.77E+13,
+    refIm: 0,
+    refRe: 3.4327,
+    wavelength: 3.42E-06
+}, {
+    epsIm: 0,
+    epsRe: 11.78892225,
+    frequency: 9.08E+13,
+    refIm: 0,
+    refRe: 3.4335,
+    wavelength: 3.30E-06
+}, {
+    epsIm: 0,
+    epsRe: 11.80678321,
+    frequency: 9.99E+13,
+    refIm: 0,
+    refRe: 3.4361,
+    wavelength: 3.00E-06
+}, {
+    epsIm: 1.72E-08,
+    epsRe: 11.82878449,
+    frequency: 1.10E+14,
+    refIm: 2.50E-09,
+    refRe: 3.4393,
+    wavelength: 2.71E-06
+}, {
+    epsIm: 0,
+    epsRe: 11.85011776,
+    frequency: 1.20E+14,
+    refIm: 0,
+    refRe: 3.4424,
+    wavelength: 2.50E-06
+}, {
+    epsIm: 0,
+    epsRe: 11.85700356,
+    frequency: 1.23E+14,
+    refIm: 0,
+    refRe: 3.4434,
+    wavelength: 2.44E-06
+}, {
+    epsIm: 0,
+    epsRe: 11.895601,
+    frequency: 1.50E+14,
+    refIm: 0,
+    refRe: 3.449,
+    wavelength: 2.00E-06
+}, {
+    epsIm: 0,
+    epsRe: 11.95638084,
+    frequency: 1.67E+14,
+    refIm: 0,
+    refRe: 3.4578,
+    wavelength: 1.80E-06
+}, {
+    epsIm: 0,
+    epsRe: 12.00206736,
+    frequency: 1.77E+14,
+    refIm: 0,
+    refRe: 3.4644,
+    wavelength: 1.70E-06
+}, {
+    epsIm: 0,
+    epsRe: 12.047841,
+    frequency: 1.87E+14,
+    refIm: 0,
+    refRe: 3.471,
+    wavelength: 1.60E-06
+}, {
+    epsIm: 0,
+    epsRe: 12.09926656,
+    frequency: 1.96E+14,
+    refIm: 0,
+    refRe: 3.4784,
+    wavelength: 1.53E-06
+}, {
+    epsIm: 0,
+    epsRe: 12.16335376,
+    frequency: 2.14E+14,
+    refIm: 0,
+    refRe: 3.4876,
+    wavelength: 1.40E-06
+}, {
+    epsIm: 0,
+    epsRe: 12.25490049,
+    frequency: 2.19E+14,
+    refIm: 0,
+    refRe: 3.5007,
+    wavelength: 1.37E-06
+}, {
+    epsIm: 0,
+    epsRe: 12.38547249,
+    frequency: 2.50E+14,
+    refIm: 0,
+    refRe: 3.5193,
+    wavelength: 1.20E-06
+}, {
+    epsIm: 0,
+    epsRe: 12.45737025,
+    frequency: 2.62E+14,
+    refIm: 0,
+    refRe: 3.5295,
+    wavelength: 1.14E-06
+}, {
+    epsIm: 9.83E-05,
+    epsRe: 12.50471044,
+    frequency: 2.66E+14,
+    refIm: 1.39E-05,
+    refRe: 3.5362,
+    wavelength: 1.13E-06
+}, {
+    epsIm: 0.00039395,
+    epsRe: 12.59611081,
+    frequency: 2.78E+14,
+    refIm: 5.55E-05,
+    refRe: 3.5491,
+    wavelength: 1.08E-06
+}, {
+    epsIm: 0.001574758,
+    epsRe: 12.69354379,
+    frequency: 2.90E+14,
+    refIm: 0.000221,
+    refRe: 3.5628,
+    wavelength: 1.03E-06
+}, {
+    epsIm: 0.00419975,
+    epsRe: 12.79707495,
+    frequency: 3.02E+14,
+    refIm: 0.000587,
+    refRe: 3.5773,
+    wavelength: 9.92E-07
+}, {
+    epsIm: 0.007975572,
+    epsRe: 12.90677353,
+    frequency: 3.14E+14,
+    refIm: 0.00111,
+    refRe: 3.5926,
+    wavelength: 9.54E-07
+}, {
+    epsIm: 0.01263045,
+    epsRe: 13.02271263,
+    frequency: 3.26E+14,
+    refIm: 0.00175,
+    refRe: 3.6087,
+    wavelength: 9.18E-07
+}, {
+    epsIm: 0.017909476,
+    epsRe: 13.14351906,
+    frequency: 3.39E+14,
+    refIm: 0.00247,
+    refRe: 3.6254,
+    wavelength: 8.86E-07
+}, {
+    epsIm: 0.023970282,
+    epsRe: 13.27070959,
+    frequency: 3.51E+14,
+    refIm: 0.00329,
+    refRe: 3.6429,
+    wavelength: 8.55E-07
+}, {
+    epsIm: 0.03673,
+    epsRe: 13.490904,
+    frequency: 3.63E+14,
+    refIm: 0.005,
+    refRe: 3.673,
+    wavelength: 8.27E-07
+}, {
+    epsIm: 0.044172,
+    epsRe: 13.549725,
+    frequency: 3.68E+14,
+    refIm: 0.006,
+    refRe: 3.681,
+    wavelength: 8.16E-07
+}, {
+    epsIm: 0.044256,
+    epsRe: 13.601308,
+    frequency: 3.72E+14,
+    refIm: 0.006,
+    refRe: 3.688,
+    wavelength: 8.05E-07
+}, {
+    epsIm: 0.051758,
+    epsRe: 13.66776,
+    frequency: 3.77E+14,
+    refIm: 0.007,
+    refRe: 3.697,
+    wavelength: 7.95E-07
+}, {
+    epsIm: 0.05187,
+    epsRe: 13.726976,
+    frequency: 3.82E+14,
+    refIm: 0.007,
+    refRe: 3.705,
+    wavelength: 7.85E-07
+}, {
+    epsIm: 0.059424,
+    epsRe: 13.793732,
+    frequency: 3.87E+14,
+    refIm: 0.008,
+    refRe: 3.714,
+    wavelength: 7.75E-07
+}, {
+    epsIm: 0.059536,
+    epsRe: 13.845777,
+    frequency: 3.92E+14,
+    refIm: 0.008,
+    refRe: 3.721,
+    wavelength: 7.65E-07
+}, {
+    epsIm: 0.067104,
+    epsRe: 13.897903,
+    frequency: 3.97E+14,
+    refIm: 0.009,
+    refRe: 3.728,
+    wavelength: 7.56E-07
+}, {
+    epsIm: 0.067248,
+    epsRe: 13.957615,
+    frequency: 4.01E+14,
+    refIm: 0.009,
+    refRe: 3.736,
+    wavelength: 7.47E-07
+}, {
+    epsIm: 0.0749,
+    epsRe: 14.024925,
+    frequency: 4.06E+14,
+    refIm: 0.01,
+    refRe: 3.745,
+    wavelength: 7.38E-07
+}, {
+    epsIm: 0.07504,
+    epsRe: 14.077404,
+    frequency: 4.11E+14,
+    refIm: 0.01,
+    refRe: 3.752,
+    wavelength: 7.29E-07
+}, {
+    epsIm: 0.082742,
+    epsRe: 14.145,
+    frequency: 4.16E+14,
+    refIm: 0.011,
+    refRe: 3.761,
+    wavelength: 7.21E-07
+}, {
+    epsIm: 0.082896,
+    epsRe: 14.197703,
+    frequency: 4.21E+14,
+    refIm: 0.011,
+    refRe: 3.768,
+    wavelength: 7.13E-07
+}, {
+    epsIm: 0.090672,
+    epsRe: 14.27314,
+    frequency: 4.26E+14,
+    refIm: 0.012,
+    refRe: 3.778,
+    wavelength: 7.05E-07
+}, {
+    epsIm: 0.098462,
+    epsRe: 14.3412,
+    frequency: 4.30E+14,
+    refIm: 0.013,
+    refRe: 3.787,
+    wavelength: 6.97E-07
+}, {
+    epsIm: 0.098696,
+    epsRe: 14.409447,
+    frequency: 4.35E+14,
+    refIm: 0.013,
+    refRe: 3.796,
+    wavelength: 6.89E-07
+}, {
+    epsIm: 0.09893,
+    epsRe: 14.477856,
+    frequency: 4.40E+14,
+    refIm: 0.013,
+    refRe: 3.805,
+    wavelength: 6.81E-07
+}, {
+    epsIm: 0.10682,
+    epsRe: 14.554029,
+    frequency: 4.45E+14,
+    refIm: 0.014,
+    refRe: 3.815,
+    wavelength: 6.74E-07
+}, {
+    epsIm: 0.11478,
+    epsRe: 14.638051,
+    frequency: 4.50E+14,
+    refIm: 0.015,
+    refRe: 3.826,
+    wavelength: 6.67E-07
+}, {
+    epsIm: 0.122784,
+    epsRe: 14.722313,
+    frequency: 4.55E+14,
+    refIm: 0.016,
+    refRe: 3.837,
+    wavelength: 6.60E-07
+}, {
+    epsIm: 0.123104,
+    epsRe: 14.799153,
+    frequency: 4.59E+14,
+    refIm: 0.016,
+    refRe: 3.847,
+    wavelength: 6.53E-07
+}, {
+    epsIm: 0.131172,
+    epsRe: 14.883875,
+    frequency: 4.64E+14,
+    refIm: 0.017,
+    refRe: 3.858,
+    wavelength: 6.46E-07
+}, {
+    epsIm: 0.13932,
+    epsRe: 14.976576,
+    frequency: 4.69E+14,
+    refIm: 0.018,
+    refRe: 3.87,
+    wavelength: 6.39E-07
+}, {
+    epsIm: 0.147516,
+    epsRe: 15.069563,
+    frequency: 4.74E+14,
+    refIm: 0.019,
+    refRe: 3.882,
+    wavelength: 6.33E-07
+}, {
+    epsIm: 0.171292,
+    epsRe: 15.154965,
+    frequency: 4.79E+14,
+    refIm: 0.022,
+    refRe: 3.893,
+    wavelength: 6.26E-07
+}, {
+    epsIm: 0.171864,
+    epsRe: 15.256352,
+    frequency: 4.84E+14,
+    refIm: 0.022,
+    refRe: 3.906,
+    wavelength: 6.20E-07
+}, {
+    epsIm: 0.188064,
+    epsRe: 15.350148,
+    frequency: 4.88E+14,
+    refIm: 0.024,
+    refRe: 3.918,
+    wavelength: 6.14E-07
+}, {
+    epsIm: 0.19655,
+    epsRe: 15.452136,
+    frequency: 4.93E+14,
+    refIm: 0.025,
+    refRe: 3.931,
+    wavelength: 6.08E-07
+}, {
+    epsIm: 0.19715,
+    epsRe: 15.546624,
+    frequency: 4.98E+14,
+    refIm: 0.025,
+    refRe: 3.943,
+    wavelength: 6.02E-07
+}, {
+    epsIm: 0.213624,
+    epsRe: 15.649207,
+    frequency: 5.03E+14,
+    refIm: 0.027,
+    refRe: 3.956,
+    wavelength: 5.96E-07
+}, {
+    epsIm: 0.23814,
+    epsRe: 15.752061,
+    frequency: 5.08E+14,
+    refIm: 0.03,
+    refRe: 3.969,
+    wavelength: 5.90E-07
+}, {
+    epsIm: 0.23898,
+    epsRe: 15.863389,
+    frequency: 5.13E+14,
+    refIm: 0.03,
+    refRe: 3.983,
+    wavelength: 5.85E-07
+}, {
+    epsIm: 0.215838,
+    epsRe: 15.97528,
+    frequency: 5.17E+14,
+    refIm: 0.027,
+    refRe: 3.997,
+    wavelength: 5.79E-07
+}, {
+    epsIm: 0.24072,
+    epsRe: 16.095244,
+    frequency: 5.22E+14,
+    refIm: 0.03,
+    refRe: 4.012,
+    wavelength: 5.74E-07
+}, {
+    epsIm: 0.273768,
+    epsRe: 16.20752,
+    frequency: 5.27E+14,
+    refIm: 0.034,
+    refRe: 4.026,
+    wavelength: 5.69E-07
+}, {
+    epsIm: 0.258688,
+    epsRe: 16.33674,
+    frequency: 5.32E+14,
+    refIm: 0.032,
+    refRe: 4.042,
+    wavelength: 5.64E-07
+}, {
+    epsIm: 0.308332,
+    epsRe: 16.457805,
+    frequency: 5.37E+14,
+    refIm: 0.038,
+    refRe: 4.057,
+    wavelength: 5.58E-07
+}, {
+    epsIm: 0.260672,
+    epsRe: 16.588305,
+    frequency: 5.42E+14,
+    refIm: 0.032,
+    refRe: 4.073,
+    wavelength: 5.54E-07
+}, {
+    epsIm: 0.359832,
+    epsRe: 16.717985,
+    frequency: 5.46E+14,
+    refIm: 0.044,
+    refRe: 4.089,
+    wavelength: 5.49E-07
+}, {
+    epsIm: 0.361328,
+    epsRe: 16.8573,
+    frequency: 5.51E+14,
+    refIm: 0.044,
+    refRe: 4.106,
+    wavelength: 5.44E-07
+}, {
+    epsIm: 0.395808,
+    epsRe: 16.996825,
+    frequency: 5.56E+14,
+    refIm: 0.048,
+    refRe: 4.123,
+    wavelength: 5.39E-07
+}, {
+    epsIm: 0.3726,
+    epsRe: 17.137575,
+    frequency: 5.61E+14,
+    refIm: 0.045,
+    refRe: 4.14,
+    wavelength: 5.34E-07
+}, {
+    epsIm: 0.357674,
+    epsRe: 17.295432,
+    frequency: 5.66E+14,
+    refIm: 0.043,
+    refRe: 4.159,
+    wavelength: 5.30E-07
+}, {
+    epsIm: 0.442762,
+    epsRe: 17.44452,
+    frequency: 5.71E+14,
+    refIm: 0.053,
+    refRe: 4.177,
+    wavelength: 5.25E-07
+}, {
+    epsIm: 0.469952,
+    epsRe: 17.60328,
+    frequency: 5.76E+14,
+    refIm: 0.056,
+    refRe: 4.196,
+    wavelength: 5.21E-07
+}, {
+    epsIm: 0.5058,
+    epsRe: 17.762625,
+    frequency: 5.80E+14,
+    refIm: 0.06,
+    refRe: 4.215,
+    wavelength: 5.17E-07
+}, {
+    epsIm: 0.5082,
+    epsRe: 17.931625,
+    frequency: 5.85E+14,
+    refIm: 0.06,
+    refRe: 4.235,
+    wavelength: 5.12E-07
+}, {
+    epsIm: 0.61272,
+    epsRe: 18.099841,
+    frequency: 5.90E+14,
+    refIm: 0.072,
+    refRe: 4.255,
+    wavelength: 5.08E-07
+}, {
+    epsIm: 0.564564,
+    epsRe: 18.288373,
+    frequency: 5.95E+14,
+    refIm: 0.066,
+    refRe: 4.277,
+    wavelength: 5.04E-07
+}, {
+    epsIm: 0.627508,
+    epsRe: 18.467475,
+    frequency: 6.00E+14,
+    refIm: 0.073,
+    refRe: 4.298,
+    wavelength: 5.00E-07
+}, {
+    epsIm: 0.63072,
+    epsRe: 18.657071,
+    frequency: 6.05E+14,
+    refIm: 0.073,
+    refRe: 4.32,
+    wavelength: 4.96E-07
+}, {
+    epsIm: 0.668822,
+    epsRe: 18.85572,
+    frequency: 6.09E+14,
+    refIm: 0.077,
+    refRe: 4.343,
+    wavelength: 4.92E-07
+}, {
+    epsIm: 0.689986,
+    epsRe: 19.064448,
+    frequency: 6.14E+14,
+    refIm: 0.079,
+    refRe: 4.367,
+    wavelength: 4.88E-07
+}, {
+    epsIm: 0.728906,
+    epsRe: 19.273992,
+    frequency: 6.19E+14,
+    refIm: 0.083,
+    refRe: 4.391,
+    wavelength: 4.84E-07
+}, {
+    epsIm: 0.830208,
+    epsRe: 19.49222,
+    frequency: 6.24E+14,
+    refIm: 0.094,
+    refRe: 4.416,
+    wavelength: 4.81E-07
+}, {
+    epsIm: 0.79956,
+    epsRe: 19.723264,
+    frequency: 6.29E+14,
+    refIm: 0.09,
+    refRe: 4.442,
+    wavelength: 4.77E-07
+}, {
+    epsIm: 1.07184,
+    epsRe: 19.930756,
+    frequency: 6.34E+14,
+    refIm: 0.12,
+    refRe: 4.466,
+    wavelength: 4.73E-07
+}, {
+    epsIm: 1.0788,
+    epsRe: 20.190625,
+    frequency: 6.38E+14,
+    refIm: 0.12,
+    refRe: 4.495,
+    wavelength: 4.70E-07
+}, {
+    epsIm: 1.211896,
+    epsRe: 20.430528,
+    frequency: 6.43E+14,
+    refIm: 0.134,
+    refRe: 4.522,
+    wavelength: 4.66E-07
+}, {
+    epsIm: 1.192886,
+    epsRe: 20.712648,
+    frequency: 6.48E+14,
+    refIm: 0.131,
+    refRe: 4.553,
+    wavelength: 4.63E-07
+}, {
+    epsIm: 1.19158,
+    epsRe: 20.986989,
+    frequency: 6.53E+14,
+    refIm: 0.13,
+    refRe: 4.583,
+    wavelength: 4.59E-07
+}, {
+    epsIm: 1.20913,
+    epsRe: 21.281064,
+    frequency: 6.58E+14,
+    refIm: 0.131,
+    refRe: 4.615,
+    wavelength: 4.56E-07
+}, {
+    epsIm: 1.236368,
+    epsRe: 21.586215,
+    frequency: 6.63E+14,
+    refIm: 0.133,
+    refRe: 4.648,
+    wavelength: 4.53E-07
+}, {
+    epsIm: 1.395236,
+    epsRe: 21.898923,
+    frequency: 6.67E+14,
+    refIm: 0.149,
+    refRe: 4.682,
+    wavelength: 4.49E-07
+}, {
+    epsIm: 1.405964,
+    epsRe: 22.237323,
+    frequency: 6.72E+14,
+    refIm: 0.149,
+    refRe: 4.718,
+    wavelength: 4.46E-07
+}, {
+    epsIm: 1.549478,
+    epsRe: 22.56444,
+    frequency: 6.77E+14,
+    refIm: 0.163,
+    refRe: 4.753,
+    wavelength: 4.43E-07
+}, {
+    epsIm: 1.62894,
+    epsRe: 22.924781,
+    frequency: 6.82E+14,
+    refIm: 0.17,
+    refRe: 4.791,
+    wavelength: 4.40E-07
+}, {
+    epsIm: 1.78747,
+    epsRe: 23.304336,
+    frequency: 6.87E+14,
+    refIm: 0.185,
+    refRe: 4.831,
+    wavelength: 4.37E-07
+}, {
+    epsIm: 1.80264,
+    epsRe: 23.702159,
+    frequency: 6.92E+14,
+    refIm: 0.185,
+    refRe: 4.872,
+    wavelength: 4.34E-07
+}, {
+    epsIm: 1.907408,
+    epsRe: 24.12942,
+    frequency: 6.96E+14,
+    refIm: 0.194,
+    refRe: 4.916,
+    wavelength: 4.31E-07
+}, {
+    epsIm: 2.014166,
+    epsRe: 24.570312,
+    frequency: 7.01E+14,
+    refIm: 0.203,
+    refRe: 4.961,
+    wavelength: 4.28E-07
+}, {
+    epsIm: 2.113798,
+    epsRe: 25.04556,
+    frequency: 7.06E+14,
+    refIm: 0.211,
+    refRe: 5.009,
+    wavelength: 4.25E-07
+}, {
+    epsIm: 2.306448,
+    epsRe: 25.53138,
+    frequency: 7.11E+14,
+    refIm: 0.228,
+    refRe: 5.058,
+    wavelength: 4.22E-07
+}, {
+    epsIm: 2.493192,
+    epsRe: 26.042345,
+    frequency: 7.16E+14,
+    refIm: 0.244,
+    refRe: 5.109,
+    wavelength: 4.19E-07
+}, {
+    epsIm: 2.63364,
+    epsRe: 26.601871,
+    frequency: 7.20E+14,
+    refIm: 0.255,
+    refRe: 5.164,
+    wavelength: 4.16E-07
+}, {
+    epsIm: 2.809436,
+    epsRe: 27.196923,
+    frequency: 7.25E+14,
+    refIm: 0.269,
+    refRe: 5.222,
+    wavelength: 4.13E-07
+}, {
+    epsIm: 3.075288,
+    epsRe: 27.835975,
+    frequency: 7.30E+14,
+    refIm: 0.291,
+    refRe: 5.284,
+    wavelength: 4.11E-07
+}, {
+    epsIm: 3.348474,
+    epsRe: 28.513832,
+    frequency: 7.35E+14,
+    refIm: 0.313,
+    refRe: 5.349,
+    wavelength: 4.08E-07
+}, {
+    epsIm: 3.56636,
+    epsRe: 29.268159,
+    frequency: 7.40E+14,
+    refIm: 0.329,
+    refRe: 5.42,
+    wavelength: 4.05E-07
+}, {
+    epsIm: 3.90003,
+    epsRe: 30.047024,
+    frequency: 7.45E+14,
+    refIm: 0.355,
+    refRe: 5.493,
+    wavelength: 4.03E-07
+}, {
+    epsIm: 4.31118,
+    epsRe: 30.875131,
+    frequency: 7.49E+14,
+    refIm: 0.387,
+    refRe: 5.57,
+    wavelength: 4.00E-07
+}, {
+    epsIm: 4.704128,
+    epsRe: 31.79466,
+    frequency: 7.54E+14,
+    refIm: 0.416,
+    refRe: 5.654,
+    wavelength: 3.97E-07
+}, {
+    epsIm: 5.238528,
+    epsRe: 32.7856,
+    frequency: 7.59E+14,
+    refIm: 0.456,
+    refRe: 5.744,
+    wavelength: 3.95E-07
+}, {
+    epsIm: 5.90042,
+    epsRe: 33.873939,
+    frequency: 7.64E+14,
+    refIm: 0.505,
+    refRe: 5.842,
+    wavelength: 3.92E-07
+}, {
+    epsIm: 6.673656,
+    epsRe: 35.063983,
+    frequency: 7.69E+14,
+    refIm: 0.561,
+    refRe: 5.948,
+    wavelength: 3.90E-07
+}, {
+    epsIm: 7.63812,
+    epsRe: 36.350944,
+    frequency: 7.74E+14,
+    refIm: 0.63,
+    refRe: 6.062,
+    wavelength: 3.88E-07
+}, {
+    epsIm: 8.83218,
+    epsRe: 37.744429,
+    frequency: 7.79E+14,
+    refIm: 0.714,
+    refRe: 6.185,
+    wavelength: 3.85E-07
+}, {
+    epsIm: 10.29508,
+    epsRe: 39.227631,
+    frequency: 7.83E+14,
+    refIm: 0.815,
+    refRe: 6.316,
+    wavelength: 3.83E-07
+}, {
+    epsIm: 12.19428,
+    epsRe: 40.735279,
+    frequency: 7.88E+14,
+    refIm: 0.945,
+    refRe: 6.452,
+    wavelength: 3.80E-07
+}, {
+    epsIm: 14.6187,
+    epsRe: 42.130125,
+    frequency: 7.93E+14,
+    refIm: 1.11,
+    refRe: 6.585,
+    wavelength: 3.78E-07
+}, {
+    epsIm: 17.71176,
+    epsRe: 43.268281,
+    frequency: 7.98E+14,
+    refIm: 1.32,
+    refRe: 6.709,
+    wavelength: 3.76E-07
+}, {
+    epsIm: 21.48484,
+    epsRe: 43.730001,
+    frequency: 8.03E+14,
+    refIm: 1.58,
+    refRe: 6.799,
+    wavelength: 3.73E-07
+}, {
+    epsIm: 25.54046,
+    epsRe: 43.138341,
+    frequency: 8.08E+14,
+    refIm: 1.87,
+    refRe: 6.829,
+    wavelength: 3.71E-07
+}, {
+    epsIm: 29.49464,
+    epsRe: 41.476716,
+    frequency: 8.12E+14,
+    refIm: 2.17,
+    refRe: 6.796,
+    wavelength: 3.69E-07
+}, {
+    epsIm: 32.9394,
+    epsRe: 38.771425,
+    frequency: 8.17E+14,
+    refIm: 2.46,
+    refRe: 6.695,
+    wavelength: 3.67E-07
+}, {
+    epsIm: 35.34924,
+    epsRe: 35.192384,
+    frequency: 8.22E+14,
+    refIm: 2.71,
+    refRe: 6.522,
+    wavelength: 3.65E-07
+}, {
+    epsIm: 36.33408,
+    epsRe: 31.496464,
+    frequency: 8.27E+14,
+    refIm: 2.88,
+    refRe: 6.308,
+    wavelength: 3.63E-07
+}, {
+    epsIm: 36.29044,
+    epsRe: 28.195521,
+    frequency: 8.32E+14,
+    refIm: 2.98,
+    refRe: 6.089,
+    wavelength: 3.60E-07
+}, {
+    epsIm: 35.59976,
+    epsRe: 25.618836,
+    frequency: 8.37E+14,
+    refIm: 3.02,
+    refRe: 5.894,
+    wavelength: 3.58E-07
+}, {
+    epsIm: 34.74198,
+    epsRe: 23.686389,
+    frequency: 8.41E+14,
+    refIm: 3.03,
+    refRe: 5.733,
+    wavelength: 3.56E-07
+}, {
+    epsIm: 33.7722,
+    epsRe: 22.412,
+    frequency: 8.46E+14,
+    refIm: 3.01,
+    refRe: 5.61,
+    wavelength: 3.54E-07
+}, {
+    epsIm: 33.09,
+    epsRe: 21.415225,
+    frequency: 8.51E+14,
+    refIm: 3,
+    refRe: 5.515,
+    wavelength: 3.52E-07
+}, {
+    epsIm: 32.54316,
+    epsRe: 20.675264,
+    frequency: 8.56E+14,
+    refIm: 2.99,
+    refRe: 5.442,
+    wavelength: 3.50E-07
+}, {
+    epsIm: 32.08268,
+    epsRe: 20.096289,
+    frequency: 8.61E+14,
+    refIm: 2.98,
+    refRe: 5.383,
+    wavelength: 3.48E-07
+}, {
+    epsIm: 31.80256,
+    epsRe: 19.592496,
+    frequency: 8.66E+14,
+    refIm: 2.98,
+    refRe: 5.336,
+    wavelength: 3.46E-07
+}, {
+    epsIm: 31.67008,
+    epsRe: 19.107516,
+    frequency: 8.70E+14,
+    refIm: 2.99,
+    refRe: 5.296,
+    wavelength: 3.44E-07
+}, {
+    epsIm: 31.566,
+    epsRe: 18.678121,
+    frequency: 8.75E+14,
+    refIm: 3,
+    refRe: 5.261,
+    wavelength: 3.43E-07
+}, {
+    epsIm: 31.49062,
+    epsRe: 18.303261,
+    frequency: 8.80E+14,
+    refIm: 3.01,
+    refRe: 5.231,
+    wavelength: 3.41E-07
+}, {
+    epsIm: 31.43216,
+    epsRe: 17.961216,
+    frequency: 8.85E+14,
+    refIm: 3.02,
+    refRe: 5.204,
+    wavelength: 3.39E-07
+}, {
+    epsIm: 31.48832,
+    epsRe: 17.580441,
+    frequency: 8.90E+14,
+    refIm: 3.04,
+    refRe: 5.179,
+    wavelength: 3.37E-07
+}, {
+    epsIm: 31.55472,
+    epsRe: 17.220736,
+    frequency: 8.95E+14,
+    refIm: 3.06,
+    refRe: 5.156,
+    wavelength: 3.35E-07
+}, {
+    epsIm: 31.62544,
+    epsRe: 16.871556,
+    frequency: 8.99E+14,
+    refIm: 3.08,
+    refRe: 5.134,
+    wavelength: 3.33E-07
+}, {
+    epsIm: 31.713,
+    epsRe: 16.553225,
+    frequency: 9.04E+14,
+    refIm: 3.1,
+    refRe: 5.115,
+    wavelength: 3.32E-07
+}, {
+    epsIm: 31.8947,
+    epsRe: 16.162125,
+    frequency: 9.09E+14,
+    refIm: 3.13,
+    refRe: 5.095,
+    wavelength: 3.30E-07
+}, {
+    epsIm: 31.9977,
+    epsRe: 15.873741,
+    frequency: 9.14E+14,
+    refIm: 3.15,
+    refRe: 5.079,
+    wavelength: 3.28E-07
+}, {
+    epsIm: 32.2134,
+    epsRe: 15.541825,
+    frequency: 9.19E+14,
+    refIm: 3.18,
+    refRe: 5.065,
+    wavelength: 3.26E-07
+}, {
+    epsIm: 32.43384,
+    epsRe: 15.218604,
+    frequency: 9.24E+14,
+    refIm: 3.21,
+    refRe: 5.052,
+    wavelength: 3.25E-07
+}, {
+    epsIm: 32.6592,
+    epsRe: 14.904,
+    frequency: 9.28E+14,
+    refIm: 3.24,
+    refRe: 5.04,
+    wavelength: 3.23E-07
+}, {
+    epsIm: 32.99024,
+    epsRe: 14.532441,
+    frequency: 9.33E+14,
+    refIm: 3.28,
+    refRe: 5.029,
+    wavelength: 3.21E-07
+}, {
+    epsIm: 33.23902,
+    epsRe: 14.254341,
+    frequency: 9.38E+14,
+    refIm: 3.31,
+    refRe: 5.021,
+    wavelength: 3.20E-07
+}, {
+    epsIm: 33.6072,
+    epsRe: 13.937756,
+    frequency: 9.43E+14,
+    refIm: 3.35,
+    refRe: 5.016,
+    wavelength: 3.18E-07
+}, {
+    epsIm: 33.98136,
+    epsRe: 13.628044,
+    frequency: 9.48E+14,
+    refIm: 3.39,
+    refRe: 5.012,
+    wavelength: 3.16E-07
+}, {
+    epsIm: 34.36174,
+    epsRe: 13.325181,
+    frequency: 9.53E+14,
+    refIm: 3.43,
+    refRe: 5.009,
+    wavelength: 3.15E-07
+}, {
+    epsIm: 34.83954,
+    epsRe: 13.010571,
+    frequency: 9.57E+14,
+    refIm: 3.477,
+    refRe: 5.01,
+    wavelength: 3.13E-07
+}, {
+    epsIm: 35.353522,
+    epsRe: 12.63624,
+    frequency: 9.62E+14,
+    refIm: 3.529,
+    refRe: 5.009,
+    wavelength: 3.12E-07
+}, {
+    epsIm: 35.94174,
+    epsRe: 12.233531,
+    frequency: 9.67E+14,
+    refIm: 3.587,
+    refRe: 5.01,
+    wavelength: 3.10E-07
+}, {
+    epsIm: 36.6095,
+    epsRe: 11.827725,
+    frequency: 9.72E+14,
+    refIm: 3.65,
+    refRe: 5.015,
+    wavelength: 3.08E-07
+}, {
+    epsIm: 37.33392,
+    epsRe: 11.341924,
+    frequency: 9.77E+14,
+    refIm: 3.72,
+    refRe: 5.018,
+    wavelength: 3.07E-07
+}, {
+    epsIm: 38.13192,
+    epsRe: 10.775596,
+    frequency: 9.82E+14,
+    refIm: 3.798,
+    refRe: 5.02,
+    wavelength: 3.05E-07
+}, {
+    epsIm: 39.01317,
+    epsRe: 10.117216,
+    frequency: 9.86E+14,
+    refIm: 3.885,
+    refRe: 5.021,
+    wavelength: 3.04E-07
+}, {
+    epsIm: 39.94916,
+    epsRe: 9.367959,
+    frequency: 9.91E+14,
+    refIm: 3.979,
+    refRe: 5.02,
+    wavelength: 3.02E-07
+}, {
+    epsIm: 40.958064,
+    epsRe: 8.424748,
+    frequency: 9.96E+14,
+    refIm: 4.086,
+    refRe: 5.012,
+    wavelength: 3.01E-07
+}, {
+    epsIm: 42.031592,
+    epsRe: 7.316385,
+    frequency: 1.00E+15,
+    refIm: 4.204,
+    refRe: 4.999,
+    wavelength: 2.99E-07
+}, {
+    epsIm: 43.15059,
+    epsRe: 5.978304,
+    frequency: 1.01E+15,
+    refIm: 4.335,
+    refRe: 4.977,
+    wavelength: 2.98E-07
+}, {
+    epsIm: 44.27136,
+    epsRe: 4.343081,
+    frequency: 1.01E+15,
+    refIm: 4.48,
+    refRe: 4.941,
+    wavelength: 2.97E-07
+}, {
+    epsIm: 45.350864,
+    epsRe: 2.372223,
+    frequency: 1.02E+15,
+    refIm: 4.639,
+    refRe: 4.888,
+    wavelength: 2.95E-07
+}, {
+    epsIm: 46.24332,
+    epsRe: -0.067319,
+    frequency: 1.02E+15,
+    refIm: 4.812,
+    refRe: 4.805,
+    wavelength: 2.94E-07
+}, {
+    epsIm: 46.756908,
+    epsRe: -2.931525,
+    frequency: 1.03E+15,
+    refIm: 4.989,
+    refRe: 4.686,
+    wavelength: 2.92E-07
+}, {
+    epsIm: 46.6799,
+    epsRe: -6.129339,
+    frequency: 1.03E+15,
+    refIm: 5.158,
+    refRe: 4.525,
+    wavelength: 2.91E-07
+}, {
+    epsIm: 45.779436,
+    epsRe: -9.455477,
+    frequency: 1.03E+15,
+    refIm: 5.301,
+    refRe: 4.318,
+    wavelength: 2.90E-07
+}, {
+    epsIm: 44.08794,
+    epsRe: -12.410629,
+    frequency: 1.04E+15,
+    refIm: 5.395,
+    refRe: 4.086,
+    wavelength: 2.88E-07
+}, {
+    epsIm: 41.869422,
+    epsRe: -14.76792,
+    frequency: 1.04E+15,
+    refIm: 5.439,
+    refRe: 3.849,
+    wavelength: 2.87E-07
+}, {
+    epsIm: 39.50158,
+    epsRe: -16.333269,
+    frequency: 1.05E+15,
+    refIm: 5.435,
+    refRe: 3.634,
+    wavelength: 2.86E-07
+}, {
+    epsIm: 37.291632,
+    epsRe: -17.45026,
+    frequency: 1.05E+15,
+    refIm: 5.414,
+    refRe: 3.444,
+    wavelength: 2.84E-07
+}, {
+    epsIm: 35.267074,
+    epsRe: -18.216432,
+    frequency: 1.06E+15,
+    refIm: 5.381,
+    refRe: 3.277,
+    wavelength: 2.83E-07
+}, {
+    epsIm: 33.34656,
+    epsRe: -18.823936,
+    frequency: 1.06E+15,
+    refIm: 5.344,
+    refRe: 3.12,
+    wavelength: 2.82E-07
+}, {
+    epsIm: 31.548192,
+    epsRe: -19.28774,
+    frequency: 1.07E+15,
+    refIm: 5.304,
+    refRe: 2.974,
+    wavelength: 2.81E-07
+}, {
+    epsIm: 29.786162,
+    epsRe: -19.61016,
+    frequency: 1.07E+15,
+    refIm: 5.257,
+    refRe: 2.833,
+    wavelength: 2.79E-07
+}, {
+    epsIm: 28.1124,
+    epsRe: -19.812436,
+    frequency: 1.08E+15,
+    refIm: 5.206,
+    refRe: 2.7,
+    wavelength: 2.78E-07
+}, {
+    epsIm: 26.481312,
+    epsRe: -19.88672,
+    frequency: 1.08E+15,
+    refIm: 5.148,
+    refRe: 2.572,
+    wavelength: 2.77E-07
+}, {
+    epsIm: 24.911964,
+    epsRe: -19.819323,
+    frequency: 1.09E+15,
+    refIm: 5.082,
+    refRe: 2.451,
+    wavelength: 2.76E-07
+}, {
+    epsIm: 23.441458,
+    epsRe: -19.6392,
+    frequency: 1.09E+15,
+    refIm: 5.011,
+    refRe: 2.339,
+    wavelength: 2.74E-07
+}, {
+    epsIm: 22.040644,
+    epsRe: -19.343733,
+    frequency: 1.10E+15,
+    refIm: 4.933,
+    refRe: 2.234,
+    wavelength: 2.73E-07
+}, {
+    epsIm: 20.75372,
+    epsRe: -18.933201,
+    frequency: 1.10E+15,
+    refIm: 4.849,
+    refRe: 2.14,
+    wavelength: 2.72E-07
+}, {
+    epsIm: 19.618152,
+    epsRe: -18.456215,
+    frequency: 1.11E+15,
+    refIm: 4.764,
+    refRe: 2.059,
+    wavelength: 2.71E-07
+}, {
+    epsIm: 18.599728,
+    epsRe: -17.93154,
+    frequency: 1.11E+15,
+    refIm: 4.678,
+    refRe: 1.988,
+    wavelength: 2.70E-07
+}, {
+    epsIm: 17.68986,
+    epsRe: -17.354771,
+    frequency: 1.12E+15,
+    refIm: 4.59,
+    refRe: 1.927,
+    wavelength: 2.68E-07
+}, {
+    epsIm: 16.888488,
+    epsRe: -16.79216,
+    frequency: 1.12E+15,
+    refIm: 4.506,
+    refRe: 1.874,
+    wavelength: 2.67E-07
+}, {
+    epsIm: 16.208012,
+    epsRe: -16.236915,
+    frequency: 1.13E+15,
+    refIm: 4.426,
+    refRe: 1.831,
+    wavelength: 2.66E-07
+}, {
+    epsIm: 15.6078,
+    epsRe: -15.704064,
+    frequency: 1.13E+15,
+    refIm: 4.35,
+    refRe: 1.794,
+    wavelength: 2.65E-07
+}, {
+    epsIm: 15.092784,
+    epsRe: -15.189588,
+    frequency: 1.14E+15,
+    refIm: 4.278,
+    refRe: 1.764,
+    wavelength: 2.64E-07
+}, {
+    epsIm: 14.629014,
+    epsRe: -14.715352,
+    frequency: 1.14E+15,
+    refIm: 4.211,
+    refRe: 1.737,
+    wavelength: 2.63E-07
+}, {
+    epsIm: 14.214474,
+    epsRe: -14.279832,
+    frequency: 1.15E+15,
+    refIm: 4.149,
+    refRe: 1.713,
+    wavelength: 2.62E-07
+}, {
+    epsIm: 13.833792,
+    epsRe: -13.84888,
+    frequency: 1.15E+15,
+    refIm: 4.088,
+    refRe: 1.692,
+    wavelength: 2.61E-07
+}, {
+    epsIm: 13.487726,
+    epsRe: -13.450032,
+    frequency: 1.16E+15,
+    refIm: 4.031,
+    refRe: 1.673,
+    wavelength: 2.59E-07
+}, {
+    epsIm: 13.194364,
+    epsRe: -13.083477,
+    frequency: 1.16E+15,
+    refIm: 3.979,
+    refRe: 1.658,
+    wavelength: 2.58E-07
+}, {
+    epsIm: 12.907408,
+    epsRe: -12.729735,
+    frequency: 1.17E+15,
+    refIm: 3.928,
+    refRe: 1.643,
+    wavelength: 2.57E-07
+}, {
+    epsIm: 12.64104,
+    epsRe: -12.400759,
+    frequency: 1.17E+15,
+    refIm: 3.88,
+    refRe: 1.629,
+    wavelength: 2.56E-07
+}, {
+    epsIm: 12.41006,
+    epsRe: -12.089301,
+    frequency: 1.18E+15,
+    refIm: 3.835,
+    refRe: 1.618,
+    wavelength: 2.55E-07
+}, {
+    epsIm: 12.185424,
+    epsRe: -11.770857,
+    frequency: 1.18E+15,
+    refIm: 3.789,
+    refRe: 1.608,
+    wavelength: 2.54E-07
+}, {
+    epsIm: 11.974306,
+    epsRe: -11.504592,
+    frequency: 1.18E+15,
+    refIm: 3.749,
+    refRe: 1.597,
+    wavelength: 2.53E-07
+}, {
+    epsIm: 11.802038,
+    epsRe: -11.2254,
+    frequency: 1.19E+15,
+    refIm: 3.709,
+    refRe: 1.591,
+    wavelength: 2.52E-07
+}, {
+    epsIm: 11.62656,
+    epsRe: -10.959844,
+    frequency: 1.19E+15,
+    refIm: 3.67,
+    refRe: 1.584,
+    wavelength: 2.51E-07
+}, {
+    epsIm: 11.47712,
+    epsRe: -10.695024,
+    frequency: 1.20E+15,
+    refIm: 3.632,
+    refRe: 1.58,
+    wavelength: 2.50E-07
+}, {
+    epsIm: 11.3337,
+    epsRe: -10.464979,
+    frequency: 1.20E+15,
+    refIm: 3.598,
+    refRe: 1.575,
+    wavelength: 2.49E-07
+}, {
+    epsIm: 11.1941,
+    epsRe: -10.244325,
+    frequency: 1.21E+15,
+    refIm: 3.565,
+    refRe: 1.57,
+    wavelength: 2.48E-07
+}, {
+    epsIm: 11.086554,
+    epsRe: -10.020328,
+    frequency: 1.21E+15,
+    refIm: 3.533,
+    refRe: 1.569,
+    wavelength: 2.47E-07
+}, {
+    epsIm: 10.988544,
+    epsRe: -9.819392,
+    frequency: 1.22E+15,
+    refIm: 3.504,
+    refRe: 1.568,
+    wavelength: 2.46E-07
+}, {
+    epsIm: 10.910826,
+    epsRe: -9.627768,
+    frequency: 1.22E+15,
+    refIm: 3.477,
+    refRe: 1.569,
+    wavelength: 2.45E-07
+}, {
+    epsIm: 10.83614,
+    epsRe: -9.444501,
+    frequency: 1.23E+15,
+    refIm: 3.451,
+    refRe: 1.57,
+    wavelength: 2.44E-07
+}, {
+    epsIm: 10.773918,
+    epsRe: -9.29,
+    frequency: 1.23E+15,
+    refIm: 3.429,
+    refRe: 1.571,
+    wavelength: 2.43E-07
+}, {
+    epsIm: 10.721568,
+    epsRe: -9.140135,
+    frequency: 1.24E+15,
+    refIm: 3.408,
+    refRe: 1.573,
+    wavelength: 2.42E-07
+}, {
+    epsIm: 10.702462,
+    epsRe: -8.99208,
+    frequency: 1.24E+15,
+    refIm: 3.389,
+    refRe: 1.579,
+    wavelength: 2.41E-07
+}, {
+    epsIm: 10.681664,
+    epsRe: -8.894652,
+    frequency: 1.25E+15,
+    refIm: 3.376,
+    refRe: 1.582,
+    wavelength: 2.40E-07
+}, {
+    epsIm: 10.667436,
+    epsRe: -8.794373,
+    frequency: 1.25E+15,
+    refIm: 3.363,
+    refRe: 1.586,
+    wavelength: 2.39E-07
+}, {
+    epsIm: 10.659012,
+    epsRe: -8.724395,
+    frequency: 1.26E+15,
+    refIm: 3.354,
+    refRe: 1.589,
+    wavelength: 2.38E-07
+}, {
+    epsIm: 10.656848,
+    epsRe: -8.667945,
+    frequency: 1.26E+15,
+    refIm: 3.347,
+    refRe: 1.592,
+    wavelength: 2.37E-07
+}, {
+    epsIm: 10.640608,
+    epsRe: -8.651055,
+    frequency: 1.27E+15,
+    refIm: 3.344,
+    refRe: 1.591,
+    wavelength: 2.37E-07
+}, {
+    epsIm: 10.63392,
+    epsRe: -8.654236,
+    frequency: 1.27E+15,
+    refIm: 3.344,
+    refRe: 1.59,
+    wavelength: 2.36E-07
+}, {
+    epsIm: 10.60682,
+    epsRe: -8.683491,
+    frequency: 1.28E+15,
+    refIm: 3.346,
+    refRe: 1.585,
+    wavelength: 2.35E-07
+}, {
+    epsIm: 10.588774,
+    epsRe: -8.749368,
+    frequency: 1.28E+15,
+    refIm: 3.353,
+    refRe: 1.579,
+    wavelength: 2.34E-07
+}, {
+    epsIm: 10.517256,
+    epsRe: -8.823808,
+    frequency: 1.29E+15,
+    refIm: 3.358,
+    refRe: 1.566,
+    wavelength: 2.33E-07
+}, {
+    epsIm: 10.414944,
+    epsRe: -8.920192,
+    frequency: 1.29E+15,
+    refIm: 3.364,
+    refRe: 1.548,
+    wavelength: 2.32E-07
+}, {
+    epsIm: 10.279136,
+    epsRe: -9.014748,
+    frequency: 1.30E+15,
+    refIm: 3.368,
+    refRe: 1.526,
+    wavelength: 2.31E-07
+}, {
+    epsIm: 10.117472,
+    epsRe: -9.08742,
+    frequency: 1.30E+15,
+    refIm: 3.368,
+    refRe: 1.502,
+    wavelength: 2.31E-07
+}, {
+    epsIm: 9.902772,
+    epsRe: -9.166115,
+    frequency: 1.31E+15,
+    refIm: 3.366,
+    refRe: 1.471,
+    wavelength: 2.30E-07
+}, {
+    epsIm: 9.70751,
+    epsRe: -9.194856,
+    frequency: 1.31E+15,
+    refIm: 3.359,
+    refRe: 1.445,
+    wavelength: 2.29E-07
+}, {
+    epsIm: 9.4872,
+    epsRe: -9.217444,
+    frequency: 1.32E+15,
+    refIm: 3.35,
+    refRe: 1.416,
+    wavelength: 2.28E-07
+}, {
+    epsIm: 9.261852,
+    epsRe: -9.186235,
+    frequency: 1.32E+15,
+    refIm: 3.334,
+    refRe: 1.389,
+    wavelength: 2.27E-07
+}, {
+    epsIm: 9.040956,
+    epsRe: -9.160717,
+    frequency: 1.32E+15,
+    refIm: 3.319,
+    refRe: 1.362,
+    wavelength: 2.26E-07
+}, {
+    epsIm: 8.84936,
+    epsRe: -9.107604,
+    frequency: 1.33E+15,
+    refIm: 3.302,
+    refRe: 1.34,
+    wavelength: 2.25E-07
+}, {
+    epsIm: 8.66583,
+    epsRe: -9.051464,
+    frequency: 1.33E+15,
+    refIm: 3.285,
+    refRe: 1.319,
+    wavelength: 2.25E-07
+}, {
+    epsIm: 8.487666,
+    epsRe: -8.985888,
+    frequency: 1.34E+15,
+    refIm: 3.267,
+    refRe: 1.299,
+    wavelength: 2.24E-07
+}, {
+    epsIm: 8.3072,
+    epsRe: -8.891625,
+    frequency: 1.34E+15,
+    refIm: 3.245,
+    refRe: 1.28,
+    wavelength: 2.23E-07
+}, {
+    epsIm: 8.16684,
+    epsRe: -8.819759,
+    frequency: 1.35E+15,
+    refIm: 3.228,
+    refRe: 1.265,
+    wavelength: 2.22E-07
+}, {
+    epsIm: 7.995764,
+    epsRe: -8.723427,
+    frequency: 1.35E+15,
+    refIm: 3.206,
+    refRe: 1.247,
+    wavelength: 2.21E-07
+}, {
+    epsIm: 7.8793,
+    epsRe: -8.650875,
+    frequency: 1.36E+15,
+    refIm: 3.19,
+    refRe: 1.235,
+    wavelength: 2.21E-07
+}, {
+    epsIm: 7.745036,
+    epsRe: -8.549277,
+    frequency: 1.36E+15,
+    refIm: 3.169,
+    refRe: 1.222,
+    wavelength: 2.20E-07
+}, {
+    epsIm: 7.6293,
+    epsRe: -8.455979,
+    frequency: 1.37E+15,
+    refIm: 3.15,
+    refRe: 1.211,
+    wavelength: 2.19E-07
+}, {
+    epsIm: 7.49265,
+    epsRe: -8.4002,
+    frequency: 1.37E+15,
+    refIm: 3.135,
+    refRe: 1.195,
+    wavelength: 2.18E-07
+}, {
+    epsIm: 7.34432,
+    epsRe: -8.292144,
+    frequency: 1.38E+15,
+    refIm: 3.112,
+    refRe: 1.18,
+    wavelength: 2.18E-07
+}, {
+    epsIm: 7.2897,
+    epsRe: -8.241779,
+    frequency: 1.38E+15,
+    refIm: 3.102,
+    refRe: 1.175,
+    wavelength: 2.17E-07
+}, {
+    epsIm: 7.184208,
+    epsRe: -8.1685,
+    frequency: 1.39E+15,
+    refIm: 3.086,
+    refRe: 1.164,
+    wavelength: 2.16E-07
+}, {
+    epsIm: 7.09863,
+    epsRe: -8.109304,
+    frequency: 1.39E+15,
+    refIm: 3.073,
+    refRe: 1.155,
+    wavelength: 2.15E-07
+}, {
+    epsIm: 6.972958,
+    epsRe: -8.0724,
+    frequency: 1.40E+15,
+    refIm: 3.061,
+    refRe: 1.139,
+    wavelength: 2.15E-07
+}, {
+    epsIm: 6.89997,
+    epsRe: -7.988336,
+    frequency: 1.40E+15,
+    refIm: 3.045,
+    refRe: 1.133,
+    wavelength: 2.14E-07
+}, {
+    epsIm: 6.76995,
+    epsRe: -7.898464,
+    frequency: 1.41E+15,
+    refIm: 3.025,
+    refRe: 1.119,
+    wavelength: 2.13E-07
+}, {
+    epsIm: 6.68727,
+    epsRe: -7.860344,
+    frequency: 1.41E+15,
+    refIm: 3.015,
+    refRe: 1.109,
+    wavelength: 2.12E-07
+}, {
+    epsIm: 6.62302,
+    epsRe: -7.815621,
+    frequency: 1.42E+15,
+    refIm: 3.005,
+    refRe: 1.102,
+    wavelength: 2.12E-07
+}, {
+    epsIm: 6.499712,
+    epsRe: -7.738425,
+    frequency: 1.42E+15,
+    refIm: 2.987,
+    refRe: 1.088,
+    wavelength: 2.11E-07
+}, {
+    epsIm: 6.459012,
+    epsRe: -7.719435,
+    frequency: 1.43E+15,
+    refIm: 2.982,
+    refRe: 1.083,
+    wavelength: 2.10E-07
+}, {
+    epsIm: 6.34082,
+    epsRe: -7.634469,
+    frequency: 1.43E+15,
+    refIm: 2.963,
+    refRe: 1.07,
+    wavelength: 2.09E-07
+}, {
+    epsIm: 6.261684,
+    epsRe: -7.489613,
+    frequency: 1.44E+15,
+    refIm: 2.937,
+    refRe: 1.066,
+    wavelength: 2.09E-07
+}, {
+    epsIm: 6.158848,
+    epsRe: -7.57302,
+    frequency: 1.44E+15,
+    refIm: 2.944,
+    refRe: 1.046,
+    wavelength: 2.08E-07
+}, {
+    epsIm: 6.066816,
+    epsRe: -7.499888,
+    frequency: 1.45E+15,
+    refIm: 2.928,
+    refRe: 1.036,
+    wavelength: 2.07E-07
+}, {
+    epsIm: 6.771,
+    epsRe: -8.0704,
+    frequency: 1.45E+15,
+    refIm: 3.05,
+    refRe: 1.11,
+    wavelength: 2.07E-07
+}, {
+    epsIm: 5.87618,
+    epsRe: -7.442181,
+    frequency: 1.45E+15,
+    refIm: 2.909,
+    refRe: 1.01,
+    wavelength: 2.07E-07
+}, {
+    epsIm: 5.59504,
+    epsRe: -7.415076,
+    frequency: 1.51E+15,
+    refIm: 2.89,
+    refRe: 0.968,
+    wavelength: 1.98E-07
+}, {
+    epsIm: 4.62462,
+    epsRe: -6.735491,
+    frequency: 1.57E+15,
+    refIm: 2.73,
+    refRe: 0.847,
+    wavelength: 1.91E-07
+}, {
+    epsIm: 3.90096,
+    epsRe: -6.084864,
+    frequency: 1.63E+15,
+    refIm: 2.58,
+    refRe: 0.756,
+    wavelength: 1.84E-07
+}, {
+    epsIm: 3.3418,
+    epsRe: -5.537376,
+    frequency: 1.69E+15,
+    refIm: 2.45,
+    refRe: 0.682,
+    wavelength: 1.77E-07
+}, {
+    epsIm: 2.86752,
+    epsRe: -5.000476,
+    frequency: 1.75E+15,
+    refIm: 2.32,
+    refRe: 0.618,
+    wavelength: 1.71E-07
+}, {
+    epsIm: 2.48846,
+    epsRe: -4.567131,
+    frequency: 1.81E+15,
+    refIm: 2.21,
+    refRe: 0.563,
+    wavelength: 1.65E-07
+}, {
+    epsIm: 2.1714,
+    epsRe: -4.142711,
+    frequency: 1.87E+15,
+    refIm: 2.1,
+    refRe: 0.517,
+    wavelength: 1.60E-07
+}, {
+    epsIm: 1.912,
+    epsRe: -3.771516,
+    frequency: 1.93E+15,
+    refIm: 2,
+    refRe: 0.478,
+    wavelength: 1.55E-07
+}, {
+    epsIm: 1.6872,
+    epsRe: -3.412864,
+    frequency: 1.99E+15,
+    refIm: 1.9,
+    refRe: 0.444,
+    wavelength: 1.50E-07
+}, {
+    epsIm: 1.50696,
+    epsRe: -3.141004,
+    frequency: 2.05E+15,
+    refIm: 1.82,
+    refRe: 0.414,
+    wavelength: 1.46E-07
+}, {
+    epsIm: 1.34594,
+    epsRe: -2.841579,
+    frequency: 2.12E+15,
+    refIm: 1.73,
+    refRe: 0.389,
+    wavelength: 1.42E-07
+}, {
+    epsIm: 1.21844,
+    epsRe: -2.620911,
+    frequency: 2.18E+15,
+    refIm: 1.66,
+    refRe: 0.367,
+    wavelength: 1.38E-07
+}, {
+    epsIm: 1.09968,
+    epsRe: -2.375296,
+    frequency: 2.24E+15,
+    refIm: 1.58,
+    refRe: 0.348,
+    wavelength: 1.34E-07
+}, {
+    epsIm: 1.00264,
+    epsRe: -2.169876,
+    frequency: 2.30E+15,
+    refIm: 1.51,
+    refRe: 0.332,
+    wavelength: 1.31E-07
+}, {
+    epsIm: 0.9222,
+    epsRe: -2.001376,
+    frequency: 2.36E+15,
+    refIm: 1.45,
+    refRe: 0.318,
+    wavelength: 1.27E-07
+}, {
+    epsIm: 0.84456,
+    epsRe: -1.810764,
+    frequency: 2.42E+15,
+    refIm: 1.38,
+    refRe: 0.306,
+    wavelength: 1.24E-07
+}, {
+    epsIm: 0.7788,
+    epsRe: -1.655375,
+    frequency: 2.48E+15,
+    refIm: 1.32,
+    refRe: 0.295,
+    wavelength: 1.21E-07
+}, {
+    epsIm: 0.72072,
+    epsRe: -1.505804,
+    frequency: 2.54E+15,
+    refIm: 1.26,
+    refRe: 0.286,
+    wavelength: 1.18E-07
+}, {
+    epsIm: 0.67276,
+    epsRe: -1.386816,
+    frequency: 2.60E+15,
+    refIm: 1.21,
+    refRe: 0.278,
+    wavelength: 1.15E-07
+}, {
+    epsIm: 0.63104,
+    epsRe: -1.271616,
+    frequency: 2.66E+15,
+    refIm: 1.16,
+    refRe: 0.272,
+    wavelength: 1.13E-07
+}, {
+    epsIm: 0.59274,
+    epsRe: -1.160811,
+    frequency: 2.72E+15,
+    refIm: 1.11,
+    refRe: 0.267,
+    wavelength: 1.10E-07
+}, {
+    epsIm: 0.55756,
+    epsRe: -1.054431,
+    frequency: 2.78E+15,
+    refIm: 1.06,
+    refRe: 0.263,
+    wavelength: 1.08E-07
+}, {
+    epsIm: 0.52318,
+    epsRe: -0.953019,
+    frequency: 2.84E+15,
+    refIm: 1.01,
+    refRe: 0.259,
+    wavelength: 1.06E-07
+}, {
+    epsIm: 0.494982,
+    epsRe: -0.86132,
+    frequency: 2.90E+15,
+    refIm: 0.963,
+    refRe: 0.257,
+    wavelength: 1.03E-07
+}, {
+    epsIm: 0.470016,
+    epsRe: -0.777188,
+    frequency: 2.96E+15,
+    refIm: 0.918,
+    refRe: 0.256,
+    wavelength: 1.01E-07
+}, {
+    epsIm: 0.44625,
+    epsRe: -0.7006,
+    frequency: 3.02E+15,
+    refIm: 0.875,
+    refRe: 0.255,
+    wavelength: 9.92E-08
+}, {
+    epsIm: 0.426496,
+    epsRe: -0.628353,
+    frequency: 3.08E+15,
+    refIm: 0.833,
+    refRe: 0.256,
+    wavelength: 9.72E-08
+}, {
+    epsIm: 0.408672,
+    epsRe: -0.5607,
+    frequency: 3.14E+15,
+    refIm: 0.792,
+    refRe: 0.258,
+    wavelength: 9.54E-08
+}, {
+    epsIm: 0.392544,
+    epsRe: -0.497383,
+    frequency: 3.20E+15,
+    refIm: 0.752,
+    refRe: 0.261,
+    wavelength: 9.36E-08
+}, {
+    epsIm: 0.37842,
+    epsRe: -0.439571,
+    frequency: 3.26E+15,
+    refIm: 0.714,
+    refRe: 0.265,
+    wavelength: 9.18E-08
+}, {
+    epsIm: 0.364226,
+    epsRe: -0.385968,
+    frequency: 3.32E+15,
+    refIm: 0.677,
+    refRe: 0.269,
+    wavelength: 9.02E-08
+}, {
+    epsIm: 0.35255,
+    epsRe: -0.335256,
+    frequency: 3.39E+15,
+    refIm: 0.641,
+    refRe: 0.275,
+    wavelength: 8.86E-08
+}, {
+    epsIm: 0.341134,
+    epsRe: -0.289488,
+    frequency: 3.45E+15,
+    refIm: 0.607,
+    refRe: 0.281,
+    wavelength: 8.70E-08
+}, {
+    epsIm: 0.330048,
+    epsRe: -0.245385,
+    frequency: 3.51E+15,
+    refIm: 0.573,
+    refRe: 0.288,
+    wavelength: 8.55E-08
+}, {
+    epsIm: 0.320272,
+    epsRe: -0.205065,
+    frequency: 3.57E+15,
+    refIm: 0.541,
+    refRe: 0.296,
+    wavelength: 8.41E-08
+}, {
+    epsIm: 0.31008,
+    epsRe: -0.167684,
+    frequency: 3.63E+15,
+    refIm: 0.51,
+    refRe: 0.304,
+    wavelength: 8.27E-08
+}, {
+    epsIm: 0.299854,
+    epsRe: -0.131472,
+    frequency: 3.69E+15,
+    refIm: 0.479,
+    refRe: 0.313,
+    wavelength: 8.13E-08
+}, {
+    epsIm: 0.2907,
+    epsRe: -0.098171,
+    frequency: 3.75E+15,
+    refIm: 0.45,
+    refRe: 0.323,
+    wavelength: 8.00E-08
+}, {
+    epsIm: 0.280386,
+    epsRe: -0.066352,
+    frequency: 3.81E+15,
+    refIm: 0.421,
+    refRe: 0.333,
+    wavelength: 7.87E-08
+}, {
+    epsIm: 0.27186,
+    epsRe: -0.036211,
+    frequency: 3.87E+15,
+    refIm: 0.394,
+    refRe: 0.345,
+    wavelength: 7.75E-08
+}, {
+    epsIm: 0.262038,
+    epsRe: -0.00724,
+    frequency: 3.93E+15,
+    refIm: 0.367,
+    refRe: 0.357,
+    wavelength: 7.63E-08
+}, {
+    epsIm: 0.252396,
+    epsRe: 0.019197,
+    frequency: 3.99E+15,
+    refIm: 0.342,
+    refRe: 0.369,
+    wavelength: 7.51E-08
+}, {
+    epsIm: 0.249084,
+    epsRe: 0.028987,
+    frequency: 4.01E+15,
+    refIm: 0.333,
+    refRe: 0.374,
+    wavelength: 7.47E-08
+}, {
+    epsIm: 0.244834,
+    epsRe: 0.039312,
+    frequency: 4.04E+15,
+    refIm: 0.323,
+    refRe: 0.379,
+    wavelength: 7.42E-08
+}, {
+    epsIm: 0.242408,
+    epsRe: 0.0504,
+    frequency: 4.06E+15,
+    refIm: 0.314,
+    refRe: 0.386,
+    wavelength: 7.38E-08
+}, {
+    epsIm: 0.235024,
+    epsRe: 0.069993,
+    frequency: 4.11E+15,
+    refIm: 0.296,
+    refRe: 0.397,
+    wavelength: 7.29E-08
+}, {
+    epsIm: 0.22605,
+    epsRe: 0.093296,
+    frequency: 4.17E+15,
+    refIm: 0.275,
+    refRe: 0.411,
+    wavelength: 7.19E-08
+}, {
+    epsIm: 0.21726,
+    epsRe: 0.116451,
+    frequency: 4.23E+15,
+    refIm: 0.255,
+    refRe: 0.426,
+    wavelength: 7.08E-08
+}, {
+    epsIm: 0.20856,
+    epsRe: 0.137431,
+    frequency: 4.29E+15,
+    refIm: 0.237,
+    refRe: 0.44,
+    wavelength: 6.98E-08
+}, {
+    epsIm: 0.19929,
+    epsRe: 0.159064,
+    frequency: 4.35E+15,
+    refIm: 0.219,
+    refRe: 0.455,
+    wavelength: 6.89E-08
+}, {
+    epsIm: 0.18333,
+    epsRe: 0.199504,
+    frequency: 4.47E+15,
+    refIm: 0.189,
+    refRe: 0.485,
+    wavelength: 6.70E-08
+}, {
+    epsIm: 0.167564,
+    epsRe: 0.237627,
+    frequency: 4.59E+15,
+    refIm: 0.163,
+    refRe: 0.514,
+    wavelength: 6.53E-08
+}, {
+    epsIm: 0.115938,
+    epsRe: 0.2504,
+    frequency: 4.61E+15,
+    refIm: 0.113,
+    refRe: 0.513,
+    wavelength: 6.50E-08
+}, {
+    epsIm: 0.106,
+    epsRe: 0.2709,
+    frequency: 4.68E+15,
+    refIm: 0.1,
+    refRe: 0.53,
+    wavelength: 6.40E-08
+}, {
+    epsIm: 0.15176,
+    epsRe: 0.274164,
+    frequency: 4.72E+15,
+    refIm: 0.14,
+    refRe: 0.542,
+    wavelength: 6.36E-08
+}, {
+    epsIm: 0.102114,
+    epsRe: 0.292752,
+    frequency: 4.76E+15,
+    refIm: 0.093,
+    refRe: 0.549,
+    wavelength: 6.30E-08
+}, {
+    epsIm: 0.094689,
+    epsRe: 0.31451675,
+    frequency: 4.84E+15,
+    refIm: 0.0835,
+    refRe: 0.567,
+    wavelength: 6.20E-08
+}, {
+    epsIm: 0.08732,
+    epsRe: 0.342624,
+    frequency: 4.91E+15,
+    refIm: 0.074,
+    refRe: 0.59,
+    wavelength: 6.10E-08
+}, {
+    epsIm: 0.0793,
+    epsRe: 0.367875,
+    frequency: 5.00E+15,
+    refIm: 0.065,
+    refRe: 0.61,
+    wavelength: 6.00E-08
+}, {
+    epsIm: 0.072732,
+    epsRe: 0.389765,
+    frequency: 5.08E+15,
+    refIm: 0.058,
+    refRe: 0.627,
+    wavelength: 5.90E-08
+}, {
+    epsIm: 0.065688,
+    epsRe: 0.412135,
+    frequency: 5.17E+15,
+    refIm: 0.051,
+    refRe: 0.644,
+    wavelength: 5.80E-08
+}, {
+    epsIm: 0.059969,
+    epsRe: 0.43221075,
+    frequency: 5.26E+15,
+    refIm: 0.0455,
+    refRe: 0.659,
+    wavelength: 5.70E-08
+}, {
+    epsIm: 0.054675,
+    epsRe: 0.45398475,
+    frequency: 5.35E+15,
+    refIm: 0.0405,
+    refRe: 0.675,
+    wavelength: 5.60E-08
+}, {
+    epsIm: 0.050443,
+    epsRe: 0.47614875,
+    frequency: 5.45E+15,
+    refIm: 0.0365,
+    refRe: 0.691,
+    wavelength: 5.50E-08
+}, {
+    epsIm: 0.04589,
+    epsRe: 0.49737975,
+    frequency: 5.55E+15,
+    refIm: 0.0325,
+    refRe: 0.706,
+    wavelength: 5.40E-08
+}, {
+    epsIm: 0.0421648,
+    epsRe: 0.52043136,
+    frequency: 5.66E+15,
+    refIm: 0.0292,
+    refRe: 0.722,
+    wavelength: 5.30E-08
+}, {
+    epsIm: 0.0389136,
+    epsRe: 0.54247204,
+    frequency: 5.77E+15,
+    refIm: 0.0264,
+    refRe: 0.737,
+    wavelength: 5.20E-08
+}, {
+    epsIm: 0.0365472,
+    epsRe: 0.56491351,
+    frequency: 5.88E+15,
+    refIm: 0.0243,
+    refRe: 0.752,
+    wavelength: 5.10E-08
+}, {
+    epsIm: 0.0341636,
+    epsRe: 0.58625871,
+    frequency: 6.00E+15,
+    refIm: 0.0223,
+    refRe: 0.766,
+    wavelength: 5.00E-08
+}, {
+    epsIm: 0.031898,
+    epsRe: 0.60486375,
+    frequency: 6.12E+15,
+    refIm: 0.0205,
+    refRe: 0.778,
+    wavelength: 4.90E-08
+}, {
+    epsIm: 0.0304128,
+    epsRe: 0.62689536,
+    frequency: 6.25E+15,
+    refIm: 0.0192,
+    refRe: 0.792,
+    wavelength: 4.80E-08
+}, {
+    epsIm: 0.0285868,
+    epsRe: 0.64449216,
+    frequency: 6.38E+15,
+    refIm: 0.0178,
+    refRe: 0.803,
+    wavelength: 4.70E-08
+}, {
+    epsIm: 0.0273504,
+    epsRe: 0.66231376,
+    frequency: 6.52E+15,
+    refIm: 0.0168,
+    refRe: 0.814,
+    wavelength: 4.60E-08
+}, {
+    epsIm: 0.0260384,
+    epsRe: 0.67872636,
+    frequency: 6.66E+15,
+    refIm: 0.0158,
+    refRe: 0.824,
+    wavelength: 4.50E-08
+}, {
+    epsIm: 0.0253536,
+    epsRe: 0.69532496,
+    frequency: 6.81E+15,
+    refIm: 0.0152,
+    refRe: 0.834,
+    wavelength: 4.40E-08
+}, {
+    epsIm: 0.0247842,
+    epsRe: 0.71043291,
+    frequency: 6.97E+15,
+    refIm: 0.0147,
+    refRe: 0.843,
+    wavelength: 4.30E-08
+}, {
+    epsIm: 0.0242252,
+    epsRe: 0.72740736,
+    frequency: 7.14E+15,
+    refIm: 0.0142,
+    refRe: 0.853,
+    wavelength: 4.20E-08
+}, {
+    epsIm: 0.023736,
+    epsRe: 0.73940956,
+    frequency: 7.31E+15,
+    refIm: 0.0138,
+    refRe: 0.86,
+    wavelength: 4.10E-08
+}, {
+    epsIm: 0.023463,
+    epsRe: 0.75497875,
+    frequency: 7.49E+15,
+    refIm: 0.0135,
+    refRe: 0.869,
+    wavelength: 4.00E-08
+}, {
+    epsIm: 0.0231528,
+    epsRe: 0.76895476,
+    frequency: 7.69E+15,
+    refIm: 0.0132,
+    refRe: 0.877,
+    wavelength: 3.90E-08
+}, {
+    epsIm: 0.022656,
+    epsRe: 0.78306116,
+    frequency: 7.89E+15,
+    refIm: 0.0128,
+    refRe: 0.885,
+    wavelength: 3.80E-08
+}, {
+    epsIm: 0.0221464,
+    epsRe: 0.79729524,
+    frequency: 8.10E+15,
+    refIm: 0.0124,
+    refRe: 0.893,
+    wavelength: 3.70E-08
+}, {
+    epsIm: 0.0217558,
+    epsRe: 0.80805459,
+    frequency: 8.33E+15,
+    refIm: 0.0121,
+    refRe: 0.899,
+    wavelength: 3.60E-08
+}, {
+    epsIm: 0.0212004,
+    epsRe: 0.82069911,
+    frequency: 8.57E+15,
+    refIm: 0.0117,
+    refRe: 0.906,
+    wavelength: 3.50E-08
+}, {
+    epsIm: 0.0206338,
+    epsRe: 0.83344131,
+    frequency: 8.82E+15,
+    refIm: 0.0113,
+    refRe: 0.913,
+    wavelength: 3.40E-08
+}, {
+    epsIm: 0.01836,
+    epsRe: 0.842624,
+    frequency: 9.08E+15,
+    refIm: 0.01,
+    refRe: 0.918,
+    wavelength: 3.30E-08
+}, {
+    epsIm: 0.01924,
+    epsRe: 0.85551684,
+    frequency: 9.37E+15,
+    refIm: 0.0104,
+    refRe: 0.925,
+    wavelength: 3.20E-08
+}, {
+    epsIm: 0.0186,
+    epsRe: 0.8648,
+    frequency: 9.67E+15,
+    refIm: 0.01,
+    refRe: 0.93,
+    wavelength: 3.10E-08
+}, {
+    epsIm: 0.017803,
+    epsRe: 0.87787875,
+    frequency: 9.99E+15,
+    refIm: 0.0095,
+    refRe: 0.937,
+    wavelength: 3.00E-08
+}, {
+    epsIm: 0.016956,
+    epsRe: 0.887283,
+    frequency: 1.03E+16,
+    refIm: 0.009,
+    refRe: 0.942,
+    wavelength: 2.90E-08
+}, {
+    epsIm: 0.0159096,
+    epsRe: 0.89673844,
+    frequency: 1.07E+16,
+    refIm: 0.0084,
+    refRe: 0.947,
+    wavelength: 2.80E-08
+}, {
+    epsIm: 0.0149464,
+    epsRe: 0.906242377,
+    frequency: 1.11E+16,
+    refIm: 0.00785,
+    refRe: 0.952,
+    wavelength: 2.70E-08
+}, {
+    epsIm: 0.0139576,
+    epsRe: 0.91388271,
+    frequency: 1.15E+16,
+    refIm: 0.0073,
+    refRe: 0.956,
+    wavelength: 2.60E-08
+}, {
+    epsIm: 0.012864,
+    epsRe: 0.92155511,
+    frequency: 1.20E+16,
+    refIm: 0.0067,
+    refRe: 0.96,
+    wavelength: 2.50E-08
+}, {
+    epsIm: 0.0117608,
+    epsRe: 0.92925879,
+    frequency: 1.25E+16,
+    refIm: 0.0061,
+    refRe: 0.964,
+    wavelength: 2.40E-08
+}, {
+    epsIm: 0.01070608,
+    epsRe: 0.936993419,
+    frequency: 1.30E+16,
+    refIm: 0.00553,
+    refRe: 0.968,
+    wavelength: 2.30E-08
+}, {
+    epsIm: 0.00972,
+    epsRe: 0.944759,
+    frequency: 1.36E+16,
+    refIm: 0.005,
+    refRe: 0.972,
+    wavelength: 2.20E-08
+}, {
+    epsIm: 0.00864736,
+    epsRe: 0.952556375,
+    frequency: 1.43E+16,
+    refIm: 0.00443,
+    refRe: 0.976,
+    wavelength: 2.10E-08
+}, {
+    epsIm: 0.00768708,
+    epsRe: 0.956468555,
+    frequency: 1.50E+16,
+    refIm: 0.00393,
+    refRe: 0.978,
+    wavelength: 2.00E-08
+}, {
+    epsIm: 0.00673652,
+    epsRe: 0.964312235,
+    frequency: 1.58E+16,
+    refIm: 0.00343,
+    refRe: 0.982,
+    wavelength: 1.90E-08
+}, {
+    epsIm: 0.0058509,
+    epsRe: 0.970216179,
+    frequency: 1.67E+16,
+    refIm: 0.00297,
+    refRe: 0.985,
+    wavelength: 1.80E-08
+}, {
+    epsIm: 0.00501904,
+    epsRe: 0.976137548,
+    frequency: 1.76E+16,
+    refIm: 0.00254,
+    refRe: 0.988,
+    wavelength: 1.70E-08
+}, {
+    epsIm: 0.0042613,
+    epsRe: 0.982076378,
+    frequency: 1.87E+16,
+    refIm: 0.00215,
+    refRe: 0.991,
+    wavelength: 1.60E-08
+}, {
+    epsIm: 0.00353508,
+    epsRe: 0.986045832,
+    frequency: 2.00E+16,
+    refIm: 0.00178,
+    refRe: 0.993,
+    wavelength: 1.50E-08
+}, {
+    epsIm: 0.00286,
+    epsRe: 0.999997955,
+    frequency: 2.14E+16,
+    refIm: 0.00143,
+    refRe: 1,
+    wavelength: 1.40E-08
+}, {
+    epsIm: 0.0026208,
+    epsRe: 1.01606231,
+    frequency: 2.20E+16,
+    refIm: 0.0013,
+    refRe: 1.008,
+    wavelength: 1.36E-08
+}, {
+    epsIm: 0.0024528,
+    epsRe: 1.04448256,
+    frequency: 2.27E+16,
+    refIm: 0.0012,
+    refRe: 1.022,
+    wavelength: 1.32E-08
+}, {
+    epsIm: 0.0023278,
+    epsRe: 1.060898723,
+    frequency: 2.31E+16,
+    refIm: 0.00113,
+    refRe: 1.03,
+    wavelength: 1.30E-08
+}, {
+    epsIm: 0.00225412,
+    epsRe: 1.069154812,
+    frequency: 2.34E+16,
+    refIm: 0.00109,
+    refRe: 1.034,
+    wavelength: 1.28E-08
+}, {
+    epsIm: 0.00210936,
+    epsRe: 1.06915496,
+    frequency: 2.38E+16,
+    refIm: 0.00102,
+    refRe: 1.034,
+    wavelength: 1.26E-08
+}, {
+    epsIm: 0.002068,
+    epsRe: 1.069155,
+    frequency: 2.40E+16,
+    refIm: 0.001,
+    refRe: 1.034,
+    wavelength: 1.25E-08
+}, {
+    epsIm: 0.00317856,
+    epsRe: 1.065021628,
+    frequency: 2.42E+16,
+    refIm: 0.00154,
+    refRe: 1.032,
+    wavelength: 1.24E-08
+}, {
+    epsIm: 0.0103,
+    epsRe: 1.060875,
+    frequency: 2.44E+16,
+    refIm: 0.005,
+    refRe: 1.03,
+    wavelength: 1.23E-08
+}, {
+    epsIm: 0.0492,
+    epsRe: 1.050049,
+    frequency: 2.46E+16,
+    refIm: 0.024,
+    refRe: 1.025,
+    wavelength: 1.22E-08
+}, {
+    epsIm: 0.05366284,
+    epsRe: 1.04809437,
+    frequency: 2.47E+16,
+    refIm: 0.0262,
+    refRe: 1.0241,
+    wavelength: 1.22E-08
+}, {
+    epsIm: 0.05187584,
+    epsRe: 1.02591888,
+    frequency: 2.52E+16,
+    refIm: 0.0256,
+    refRe: 1.0132,
+    wavelength: 1.19E-08
+}, {
+    epsIm: 0.0497458,
+    epsRe: 1.01343891,
+    frequency: 2.59E+16,
+    refIm: 0.0247,
+    refRe: 1.007,
+    wavelength: 1.16E-08
+}, {
+    epsIm: 0.04798642,
+    epsRe: 1.007244,
+    frequency: 2.66E+16,
+    refIm: 0.0239,
+    refRe: 1.0039,
+    wavelength: 1.13E-08
+}, {
+    epsIm: 0.04671184,
+    epsRe: 1.00426287,
+    frequency: 2.71E+16,
+    refIm: 0.0233,
+    refRe: 1.0024,
+    wavelength: 1.11E-08
+}, {
+    epsIm: 0.04523616,
+    epsRe: 1.00108988,
+    frequency: 2.78E+16,
+    refIm: 0.0226,
+    refRe: 1.0008,
+    wavelength: 1.08E-08
+}, {
+    epsIm: 0.043781604,
+    epsRe: 0.998680566,
+    frequency: 2.85E+16,
+    refIm: 0.0219,
+    refRe: 0.99958,
+    wavelength: 1.05E-08
+}, {
+    epsIm: 0.042338944,
+    epsRe: 0.996672634,
+    frequency: 2.92E+16,
+    refIm: 0.0212,
+    refRe: 0.99856,
+    wavelength: 1.03E-08
+}, {
+    epsIm: 0.041106476,
+    epsRe: 0.995040793,
+    frequency: 3.00E+16,
+    refIm: 0.0206,
+    refRe: 0.99773,
+    wavelength: 1.00E-08
+}, {
+    epsIm: 0.039882,
+    epsRe: 0.993708702,
+    frequency: 3.07E+16,
+    refIm: 0.02,
+    refRe: 0.99705,
+    wavelength: 9.76E-09
+}, {
+    epsIm: 0.03866226,
+    epsRe: 0.992536242,
+    frequency: 3.14E+16,
+    refIm: 0.0194,
+    refRe: 0.99645,
+    wavelength: 9.54E-09
+}, {
+    epsIm: 0.037447344,
+    epsRe: 0.991543044,
+    frequency: 3.22E+16,
+    refIm: 0.0188,
+    refRe: 0.99594,
+    wavelength: 9.32E-09
+}, {
+    epsIm: 0.036434934,
+    epsRe: 0.99066545,
+    frequency: 3.29E+16,
+    refIm: 0.0183,
+    refRe: 0.99549,
+    wavelength: 9.12E-09
+}, {
+    epsIm: 0.035221584,
+    epsRe: 0.989632112,
+    frequency: 3.39E+16,
+    refIm: 0.0177,
+    refRe: 0.99496,
+    wavelength: 8.86E-09
+}, {
+    epsIm: 0.03421424,
+    epsRe: 0.98893332,
+    frequency: 3.46E+16,
+    refIm: 0.0172,
+    refRe: 0.9946,
+    wavelength: 8.67E-09
+}, {
+    epsIm: 0.03300578,
+    epsRe: 0.988058662,
+    frequency: 3.55E+16,
+    refIm: 0.0166,
+    refRe: 0.99415,
+    wavelength: 8.43E-09
+}, {
+    epsIm: 0.032200416,
+    epsRe: 0.987455506,
+    frequency: 3.63E+16,
+    refIm: 0.0162,
+    refRe: 0.99384,
+    wavelength: 8.27E-09
+}, {
+    epsIm: 0.03119276,
+    epsRe: 0.98659707,
+    frequency: 3.72E+16,
+    refIm: 0.0157,
+    refRe: 0.9934,
+    wavelength: 8.05E-09
+}, {
+    epsIm: 0.030183248,
+    epsRe: 0.985559797,
+    frequency: 3.82E+16,
+    refIm: 0.0152,
+    refRe: 0.99287,
+    wavelength: 7.85E-09
+}, {
+    epsIm: 0.02877815,
+    epsRe: 0.984548272,
+    frequency: 3.92E+16,
+    refIm: 0.0145,
+    refRe: 0.99235,
+    wavelength: 7.65E-09
+}, {
+    epsIm: 0.02877815,
+    epsRe: 0.984548272,
+    frequency: 4.01E+16,
+    refIm: 0.0145,
+    refRe: 0.99235,
+    wavelength: 7.47E-09
+}, {
+    epsIm: 0.025389056,
+    epsRe: 0.983424058,
+    frequency: 4.11E+16,
+    refIm: 0.0128,
+    refRe: 0.99176,
+    wavelength: 7.29E-09
+}, {
+    epsIm: 0.023998414,
+    epsRe: 0.983262979,
+    frequency: 4.21E+16,
+    refIm: 0.0121,
+    refRe: 0.99167,
+    wavelength: 7.13E-09
+}, {
+    epsIm: 0.022609392,
+    epsRe: 0.98321993,
+    frequency: 4.30E+16,
+    refIm: 0.0114,
+    refRe: 0.99164,
+    wavelength: 6.97E-09
+}, {
+    epsIm: 0.021221096,
+    epsRe: 0.9832354,
+    frequency: 4.40E+16,
+    refIm: 0.0107,
+    refRe: 0.99164,
+    wavelength: 6.81E-09
+}, {
+    epsIm: 0.0198334,
+    epsRe: 0.983309389,
+    frequency: 4.52E+16,
+    refIm: 0.01,
+    refRe: 0.99167,
+    wavelength: 6.63E-09
+}, {
+    epsIm: 0.018762775,
+    epsRe: 0.983359564,
+    frequency: 4.62E+16,
+    refIm: 0.00946,
+    refRe: 0.99169,
+    wavelength: 6.49E-09
+}, {
+    epsIm: 0.017435668,
+    epsRe: 0.98357014,
+    frequency: 4.74E+16,
+    refIm: 0.00879,
+    refRe: 0.99179,
+    wavelength: 6.33E-09
+}, {
+    epsIm: 0.016227811,
+    epsRe: 0.983838374,
+    frequency: 4.86E+16,
+    refIm: 0.00818,
+    refRe: 0.99192,
+    wavelength: 6.17E-09
+}, {
+    epsIm: 0.015138836,
+    epsRe: 0.984124827,
+    frequency: 4.98E+16,
+    refIm: 0.00763,
+    refRe: 0.99206,
+    wavelength: 6.02E-09
+}, {
+    epsIm: 0.014128786,
+    epsRe: 0.984390302,
+    frequency: 5.10E+16,
+    refIm: 0.00712,
+    refRe: 0.99219,
+    wavelength: 5.88E-09
+}, {
+    epsIm: 0.013158694,
+    epsRe: 0.984734413,
+    frequency: 5.22E+16,
+    refIm: 0.00663,
+    refRe: 0.99236,
+    wavelength: 5.74E-09
+}, {
+    epsIm: 0.012287645,
+    epsRe: 0.985097336,
+    frequency: 5.34E+16,
+    refIm: 0.00619,
+    refRe: 0.99254,
+    wavelength: 5.61E-09
+}, {
+    epsIm: 0.011317578,
+    epsRe: 0.985559783,
+    frequency: 5.49E+16,
+    refIm: 0.0057,
+    refRe: 0.99277,
+    wavelength: 5.46E-09
+}, {
+    epsIm: 0.010604813,
+    epsRe: 0.985941046,
+    frequency: 5.61E+16,
+    refIm: 0.00534,
+    refRe: 0.99296,
+    wavelength: 5.34E-09
+}, {
+    epsIm: 0.009812618,
+    epsRe: 0.986382109,
+    frequency: 5.76E+16,
+    refIm: 0.00494,
+    refRe: 0.99318,
+    wavelength: 5.21E-09
+}, {
+    epsIm: 0.009079585,
+    epsRe: 0.986802807,
+    frequency: 5.90E+16,
+    refIm: 0.00457,
+    refRe: 0.99339,
+    wavelength: 5.08E-09
+}, {
+    epsIm: 0.008405941,
+    epsRe: 0.987242939,
+    frequency: 6.05E+16,
+    refIm: 0.00423,
+    refRe: 0.99361,
+    wavelength: 4.96E-09
+}, {
+    epsIm: 0.007811425,
+    epsRe: 0.987662748,
+    frequency: 6.19E+16,
+    refIm: 0.00393,
+    refRe: 0.99382,
+    wavelength: 4.84E-09
+}, {
+    epsIm: 0.007256419,
+    epsRe: 0.988082318,
+    frequency: 6.34E+16,
+    refIm: 0.00365,
+    refRe: 0.99403,
+    wavelength: 4.73E-09
+}, {
+    epsIm: 0.006681494,
+    epsRe: 0.988561543,
+    frequency: 6.50E+16,
+    refIm: 0.00336,
+    refRe: 0.99427,
+    wavelength: 4.61E-09
+}, {
+    epsIm: 0.00622532,
+    epsRe: 0.988940895,
+    frequency: 6.65E+16,
+    refIm: 0.00313,
+    refRe: 0.99446,
+    wavelength: 4.51E-09
+}, {
+    epsIm: 0.005729357,
+    epsRe: 0.989380008,
+    frequency: 6.82E+16,
+    refIm: 0.00288,
+    refRe: 0.99468,
+    wavelength: 4.40E-09
+}, {
+    epsIm: 0.005312713,
+    epsRe: 0.989798983,
+    frequency: 6.99E+16,
+    refIm: 0.00267,
+    refRe: 0.99489,
+    wavelength: 4.29E-09
+}, {
+    epsIm: 0.004915745,
+    epsRe: 0.990198007,
+    frequency: 7.16E+16,
+    refIm: 0.00247,
+    refRe: 0.99509,
+    wavelength: 4.19E-09
+}, {
+    epsIm: 0.004558382,
+    epsRe: 0.990577034,
+    frequency: 7.33E+16,
+    refIm: 0.00229,
+    refRe: 0.99528,
+    wavelength: 4.09E-09
+}, {
+    epsIm: 0.004181058,
+    epsRe: 0.99099593,
+    frequency: 7.52E+16,
+    refIm: 0.0021,
+    refRe: 0.99549,
+    wavelength: 3.99E-09
+}, {
+    epsIm: 0.003883074,
+    epsRe: 0.991335033,
+    frequency: 7.69E+16,
+    refIm: 0.00195,
+    refRe: 0.99566,
+    wavelength: 3.90E-09
+}, {
+    epsIm: 0.00358506,
+    epsRe: 0.991713983,
+    frequency: 7.88E+16,
+    refIm: 0.0018,
+    refRe: 0.99585,
+    wavelength: 3.80E-09
+}, {
+    epsIm: 0.003306786,
+    epsRe: 0.992053085,
+    frequency: 8.08E+16,
+    refIm: 0.00166,
+    refRe: 0.99602,
+    wavelength: 3.71E-09
+}, {
+    epsIm: 0.003048341,
+    epsRe: 0.992392175,
+    frequency: 8.27E+16,
+    refIm: 0.00153,
+    refRe: 0.99619,
+    wavelength: 3.63E-09
+}, {
+    epsIm: 0.002809735,
+    epsRe: 0.992731262,
+    frequency: 8.49E+16,
+    refIm: 0.00141,
+    refRe: 0.99636,
+    wavelength: 3.53E-09
+}, {
+    epsIm: 0.002610856,
+    epsRe: 0.993030464,
+    frequency: 8.68E+16,
+    refIm: 0.00131,
+    refRe: 0.99651,
+    wavelength: 3.45E-09
+}, {
+    epsIm: 0.002392008,
+    epsRe: 0.993349649,
+    frequency: 8.90E+16,
+    refIm: 0.0012,
+    refRe: 0.99667,
+    wavelength: 3.37E-09
+}, {
+    epsIm: 0.00221294,
+    epsRe: 0.99364888,
+    frequency: 9.12E+16,
+    refIm: 0.00111,
+    refRe: 0.99682,
+    wavelength: 3.29E-09
+}, {
+    epsIm: 0.002033778,
+    epsRe: 0.993908262,
+    frequency: 9.33E+16,
+    refIm: 0.00102,
+    refRe: 0.99695,
+    wavelength: 3.21E-09
+}, {
+    epsIm: 0.001872554,
+    epsRe: 0.994207528,
+    frequency: 9.57E+16,
+    refIm: 0.000939,
+    refRe: 0.9971,
+    wavelength: 3.13E-09
+}, {
+    epsIm: 0.001721219,
+    epsRe: 0.994466928,
+    frequency: 9.82E+16,
+    refIm: 0.000863,
+    refRe: 0.99723,
+    wavelength: 3.05E-09
+}, {
+    epsIm: 0.001597755,
+    epsRe: 0.994706381,
+    frequency: 1.00E+17,
+    refIm: 0.000801,
+    refRe: 0.99735,
+    wavelength: 2.99E-09
+}, {
+    epsIm: 0.001464301,
+    epsRe: 0.994965812,
+    frequency: 1.03E+17,
+    refIm: 0.000734,
+    refRe: 0.99748,
+    wavelength: 2.91E-09
+}, {
+    epsIm: 0.001350737,
+    epsRe: 0.99518535,
+    frequency: 1.05E+17,
+    refIm: 0.000677,
+    refRe: 0.99759,
+    wavelength: 2.84E-09
+}, {
+    epsIm: 0.001241139,
+    epsRe: 0.995404903,
+    frequency: 1.08E+17,
+    refIm: 0.000622,
+    refRe: 0.9977,
+    wavelength: 2.77E-09
+}, {
+    epsIm: 0.001141495,
+    epsRe: 0.995624469,
+    frequency: 1.11E+17,
+    refIm: 0.000572,
+    refRe: 0.99781,
+    wavelength: 2.71E-09
+}, {
+    epsIm: 0.001051797,
+    epsRe: 0.99582409,
+    frequency: 1.13E+17,
+    refIm: 0.000527,
+    refRe: 0.99791,
+    wavelength: 2.64E-09
+}, {
+    epsIm: 0.000972052,
+    epsRe: 0.996003763,
+    frequency: 1.16E+17,
+    refIm: 0.000487,
+    refRe: 0.998,
+    wavelength: 2.58E-09
+}, {
+    epsIm: 0.000892301,
+    epsRe: 0.99620341,
+    frequency: 1.19E+17,
+    refIm: 0.000447,
+    refRe: 0.9981,
+    wavelength: 2.52E-09
+}, {
+    epsIm: 0.000820512,
+    epsRe: 0.996383107,
+    frequency: 1.22E+17,
+    refIm: 0.000411,
+    refRe: 0.99819,
+    wavelength: 2.46E-09
+}, {
+    epsIm: 0.000756689,
+    epsRe: 0.996542849,
+    frequency: 1.25E+17,
+    refIm: 0.000379,
+    refRe: 0.99827,
+    wavelength: 2.40E-09
+}, {
+    epsIm: 0.000692862,
+    epsRe: 0.996722569,
+    frequency: 1.28E+17,
+    refIm: 0.000347,
+    refRe: 0.99836,
+    wavelength: 2.34E-09
+}, {
+    epsIm: 0.000636998,
+    epsRe: 0.996862363,
+    frequency: 1.31E+17,
+    refIm: 0.000319,
+    refRe: 0.99843,
+    wavelength: 2.29E-09
+}, {
+    epsIm: 0.000587124,
+    epsRe: 0.997022134,
+    frequency: 1.34E+17,
+    refIm: 0.000294,
+    refRe: 0.99851,
+    wavelength: 2.23E-09
+}, {
+    epsIm: 0.000537236,
+    epsRe: 0.997161944,
+    frequency: 1.38E+17,
+    refIm: 0.000269,
+    refRe: 0.99858,
+    wavelength: 2.18E-09
+}, {
+    epsIm: 0.000493333,
+    epsRe: 0.997301761,
+    frequency: 1.41E+17,
+    refIm: 0.000247,
+    refRe: 0.99865,
+    wavelength: 2.13E-09
+}, {
+    epsIm: 0.000453414,
+    epsRe: 0.997421613,
+    frequency: 1.44E+17,
+    refIm: 0.000227,
+    refRe: 0.99871,
+    wavelength: 2.08E-09
+}, {
+    epsIm: 0.000415492,
+    epsRe: 0.997561445,
+    frequency: 1.48E+17,
+    refIm: 0.000208,
+    refRe: 0.99878,
+    wavelength: 2.03E-09
+}, {
+    epsIm: 0.000381553,
+    epsRe: 0.997661332,
+    frequency: 1.52E+17,
+    refIm: 0.000191,
+    refRe: 0.99883,
+    wavelength: 1.98E-09
+}, {
+    epsIm: 0.000351609,
+    epsRe: 0.997781201,
+    frequency: 1.55E+17,
+    refIm: 0.000176,
+    refRe: 0.99889,
+    wavelength: 1.93E-09
+}, {
+    epsIm: 0.000321659,
+    epsRe: 0.997881098,
+    frequency: 1.59E+17,
+    refIm: 0.000161,
+    refRe: 0.99894,
+    wavelength: 1.88E-09
+}, {
+    epsIm: 0.000295701,
+    epsRe: 0.997980998,
+    frequency: 1.63E+17,
+    refIm: 0.000148,
+    refRe: 0.99899,
+    wavelength: 1.84E-09
+}, {
+    epsIm: 0.000271739,
+    epsRe: 0.998082901,
+    frequency: 1.67E+17,
+    refIm: 0.000136,
+    refRe: 0.999041,
+    wavelength: 1.80E-09
+}, {
+    epsIm: 0.000249772,
+    epsRe: 0.998176816,
+    frequency: 1.71E+17,
+    refIm: 0.000125,
+    refRe: 0.999088,
+    wavelength: 1.75E-09
+}, {
+    epsIm: 0.000227803,
+    epsRe: 0.998268737,
+    frequency: 1.75E+17,
+    refIm: 0.000114,
+    refRe: 0.999134,
+    wavelength: 1.71E-09
+}, {
+    epsIm: 0.000209827,
+    epsRe: 0.998348671,
+    frequency: 1.79E+17,
+    refIm: 0.000105,
+    refRe: 0.999174,
+    wavelength: 1.67E-09
+}, {
+    epsIm: 0.000193048,
+    epsRe: 0.998428608,
+    frequency: 1.84E+17,
+    refIm: 9.66E-05,
+    refRe: 0.999214,
+    wavelength: 1.63E-09
+}, {
+    epsIm: 0.000176668,
+    epsRe: 0.99850655,
+    frequency: 1.88E+17,
+    refIm: 8.84E-05,
+    refRe: 0.999253,
+    wavelength: 1.59E-09
+}, {
+    epsIm: 0.000162085,
+    epsRe: 0.998578499,
+    frequency: 1.93E+17,
+    refIm: 8.11E-05,
+    refRe: 0.999289,
+    wavelength: 1.55E-09
+}, {
+    epsIm: 0.0001483,
+    epsRe: 0.99865045,
+    frequency: 1.98E+17,
+    refIm: 7.42E-05,
+    refRe: 0.999325,
+    wavelength: 1.52E-09
+}, {
+    epsIm: 0.000135913,
+    epsRe: 0.998716408,
+    frequency: 2.03E+17,
+    refIm: 6.80E-05,
+    refRe: 0.999358,
+    wavelength: 1.48E-09
+}, {
+    epsIm: 0.000124924,
+    epsRe: 0.998776371,
+    frequency: 2.07E+17,
+    refIm: 6.25E-05,
+    refRe: 0.999388,
+    wavelength: 1.45E-09
+}, {
+    epsIm: 0.000114533,
+    epsRe: 0.998836335,
+    frequency: 2.13E+17,
+    refIm: 5.73E-05,
+    refRe: 0.999418,
+    wavelength: 1.41E-09
+}, {
+    epsIm: 0.000104742,
+    epsRe: 0.998894303,
+    frequency: 2.18E+17,
+    refIm: 5.24E-05,
+    refRe: 0.999447,
+    wavelength: 1.38E-09
+}, {
+    epsIm: 9.59E-05,
+    epsRe: 0.998948274,
+    frequency: 2.23E+17,
+    refIm: 4.80E-05,
+    refRe: 0.999474,
+    wavelength: 1.34E-09
+}, {
+    epsIm: 8.82E-05,
+    epsRe: 0.999000248,
+    frequency: 2.29E+17,
+    refIm: 4.41E-05,
+    refRe: 0.9995,
+    wavelength: 1.31E-09
+}, {
+    epsIm: 8.08E-05,
+    epsRe: 0.999048225,
+    frequency: 2.34E+17,
+    refIm: 4.04E-05,
+    refRe: 0.999524,
+    wavelength: 1.28E-09
+}, {
+    epsIm: 7.40E-05,
+    epsRe: 0.999096203,
+    frequency: 2.40E+17,
+    refIm: 3.70E-05,
+    refRe: 0.999548,
+    wavelength: 1.25E-09
+}, {
+    epsIm: 6.78E-05,
+    epsRe: 0.999140184,
+    frequency: 2.46E+17,
+    refIm: 3.39E-05,
+    refRe: 0.99957,
+    wavelength: 1.22E-09
+}, {
+    epsIm: 6.20E-05,
+    epsRe: 0.999182166,
+    frequency: 2.52E+17,
+    refIm: 3.10E-05,
+    refRe: 0.999591,
+    wavelength: 1.19E-09
+}, {
+    epsIm: 5.68E-05,
+    epsRe: 0.99922415,
+    frequency: 2.58E+17,
+    refIm: 2.84E-05,
+    refRe: 0.999612,
+    wavelength: 1.16E-09
+}, {
+    epsIm: 5.20E-05,
+    epsRe: 0.999262135,
+    frequency: 2.64E+17,
+    refIm: 2.60E-05,
+    refRe: 0.999631,
+    wavelength: 1.13E-09
+}, {
+    epsIm: 4.78E-05,
+    epsRe: 0.999298123,
+    frequency: 2.71E+17,
+    refIm: 2.39E-05,
+    refRe: 0.999649,
+    wavelength: 1.11E-09
+}, {
+    epsIm: 4.36E-05,
+    epsRe: 0.99933411,
+    frequency: 2.77E+17,
+    refIm: 2.18E-05,
+    refRe: 0.999667,
+    wavelength: 1.08E-09
+}, {
+    epsIm: 4.00E-05,
+    epsRe: 0.999368099,
+    frequency: 2.84E+17,
+    refIm: 2.00E-05,
+    refRe: 0.999684,
+    wavelength: 1.06E-09
+}, {
+    epsIm: 3.66E-05,
+    epsRe: 0.99940009,
+    frequency: 2.91E+17,
+    refIm: 1.83E-05,
+    refRe: 0.9997,
+    wavelength: 1.03E-09
+}, {
+    epsIm: 3.34E-05,
+    epsRe: 0.999430081,
+    frequency: 2.98E+17,
+    refIm: 1.67E-05,
+    refRe: 0.999715,
+    wavelength: 1.01E-09
+}, {
+    epsIm: 3.06E-05,
+    epsRe: 0.999458073,
+    frequency: 3.05E+17,
+    refIm: 1.53E-05,
+    refRe: 0.999729,
+    wavelength: 9.82E-10
+}, {
+    epsIm: 2.80E-05,
+    epsRe: 0.999486066,
+    frequency: 3.13E+17,
+    refIm: 1.40E-05,
+    refRe: 0.999743,
+    wavelength: 9.58E-10
+}, {
+    epsIm: 2.56E-05,
+    epsRe: 0.999512059,
+    frequency: 3.21E+17,
+    refIm: 1.28E-05,
+    refRe: 0.999756,
+    wavelength: 9.35E-10
+}, {
+    epsIm: 2.34E-05,
+    epsRe: 0.999538053,
+    frequency: 3.28E+17,
+    refIm: 1.17E-05,
+    refRe: 0.999769,
+    wavelength: 9.13E-10
+}, {
+    epsIm: 2.14E-05,
+    epsRe: 0.999562048,
+    frequency: 3.37E+17,
+    refIm: 1.07E-05,
+    refRe: 0.999781,
+    wavelength: 8.91E-10
+}, {
+    epsIm: 1.96E-05,
+    epsRe: 0.999584043,
+    frequency: 3.45E+17,
+    refIm: 9.81E-06,
+    refRe: 0.999792,
+    wavelength: 8.69E-10
+}, {
+    epsIm: 1.80E-05,
+    epsRe: 0.999606039,
+    frequency: 3.53E+17,
+    refIm: 8.99E-06,
+    refRe: 0.999803,
+    wavelength: 8.49E-10
+}, {
+    epsIm: 1.64E-05,
+    epsRe: 0.999628035,
+    frequency: 3.62E+17,
+    refIm: 8.22E-06,
+    refRe: 0.999814,
+    wavelength: 8.29E-10
+}, {
+    epsIm: 1.50E-05,
+    epsRe: 0.999648031,
+    frequency: 3.71E+17,
+    refIm: 7.49E-06,
+    refRe: 0.999824,
+    wavelength: 8.09E-10
+}, {
+    epsIm: 1.37E-05,
+    epsRe: 0.999668028,
+    frequency: 3.80E+17,
+    refIm: 6.85E-06,
+    refRe: 0.999834,
+    wavelength: 7.90E-10
+}, {
+    epsIm: 1.25E-05,
+    epsRe: 0.999688024,
+    frequency: 3.89E+17,
+    refIm: 6.24E-06,
+    refRe: 0.999844,
+    wavelength: 7.70E-10
+}, {
+    epsIm: 1.14E-05,
+    epsRe: 0.999708021,
+    frequency: 3.99E+17,
+    refIm: 5.70E-06,
+    refRe: 0.999854,
+    wavelength: 7.52E-10
+}, {
+    epsIm: 1.04E-05,
+    epsRe: 0.999726019,
+    frequency: 4.08E+17,
+    refIm: 5.20E-06,
+    refRe: 0.999863,
+    wavelength: 7.35E-10
+}, {
+    epsIm: 9.48E-06,
+    epsRe: 0.999748016,
+    frequency: 4.18E+17,
+    refIm: 4.74E-06,
+    refRe: 0.999874,
+    wavelength: 7.17E-10
+}, {
+    epsIm: 8.64E-06,
+    epsRe: 0.999770013,
+    frequency: 4.28E+17,
+    refIm: 4.32E-06,
+    refRe: 0.999885,
+    wavelength: 7.00E-10
+}, {
+    epsIm: 7.86E-06,
+    epsRe: 0.999822608,
+    frequency: 4.39E+17,
+    refIm: 3.93E-06,
+    refRe: 0.9999113,
+    wavelength: 6.83E-10
+}, {
+    epsIm: 8.16E-05,
+    epsRe: 0.999863603,
+    frequency: 4.50E+17,
+    refIm: 4.08E-05,
+    refRe: 0.9999318,
+    wavelength: 6.67E-10
+}, {
+    epsIm: 7.52E-05,
+    epsRe: 0.999844405,
+    frequency: 4.61E+17,
+    refIm: 3.76E-05,
+    refRe: 0.9999222,
+    wavelength: 6.51E-10
+}, {
+    epsIm: 6.92E-05,
+    epsRe: 0.999826206,
+    frequency: 4.72E+17,
+    refIm: 3.46E-05,
+    refRe: 0.9999131,
+    wavelength: 6.35E-10
+}, {
+    epsIm: 6.38E-05,
+    epsRe: 0.999809608,
+    frequency: 4.84E+17,
+    refIm: 3.19E-05,
+    refRe: 0.9999048,
+    wavelength: 6.20E-10
+}]
+
+ module.exports = {
+    materialParams
+ }
