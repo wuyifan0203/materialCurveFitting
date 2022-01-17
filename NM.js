@@ -3,7 +3,8 @@ const {materialCurveFitting} = require("./demo.js")
 const mathjs = require('mathjs')
 
 const Tol = 0.1;// 目标误差
-const MaxIter = 10000;
+const MaxIter = 10000
+;
 
 const START = Date.now();
 
@@ -25,15 +26,30 @@ let err = 10000; //误差
 //   3.518883159679624
 // ];
 
-const makeP =()=>{
-  const p=[];
-  for(let i=0;i<12;i++){
-    p.push(Math.floor(Math.random() * 20+ 1));
-  }
-  return p
-}
-const p0=makeP();
-console.log(p0);
+const p0 =[
+  5.700686837863513,
+4.578720280401709,
+0.482102135864590,
+-3.369776157658570,
+-1.317293027611639,
+-8.835480500791704,
+0.516962791801114,
+4.243456713267605,
+-17.426872989705963,
+-50.139855115730576,
+2.430251701626421,
+4.596657303636679
+]
+
+// const makeP =()=>{
+//   const p=[];
+//   for(let i=0;i<12;i++){
+//     p.push(Math.floor(Math.random() * 20+ 1));
+//   }
+//   return p
+// }
+// const p0=makeP();
+// console.log(p0);
 
 // const p0=[
 //   6, 14, 12, 10, 14,
@@ -146,7 +162,8 @@ const pkrkColumn = (Plist)=>{
 const updatePMatrix =(indexArray,PMatrix) =>{
   const newPmatrix = [];
   for(let i=0;i<indexArray.length;i++){
-    newPmatrix[i]=PMatrix[indexArray[i].index]
+    const index=indexArray[i].index;
+    newPmatrix[i]=PMatrix[index];
   }
   return newPmatrix
 }
@@ -162,6 +179,23 @@ const initPMatrix=  (p0,optimizationLengthScale)=>{
   return p
 };
 
+// function quick(arr){
+//   if(arr.length<=1){
+//       return arr;
+//   }
+//   let left = [],
+//       right = [],
+//       k = arr.splice(0, 1)[0].value;
+//       for(var i = 0;i<arr.length;i++){
+//           if(arr[i].value>k){
+//               right.push(arr[i].value);
+//           }else{
+//               left.push(arr[i].value);
+//           }
+//       }
+//       return quick(left).concat([k],quick(right));
+// }
+
 const sortArray=(arr)=>{
   const A=[];
   for(let i=0;i<arr.length;i++){
@@ -171,6 +205,7 @@ const sortArray=(arr)=>{
     return
   }
     let len = A.length;
+    
     for (let i = 0; i < len-1; i++) {
       for (let j = 0; j < len - 1 - i; j++) {
           if (A[j].value > A[j + 1].value) {
@@ -191,10 +226,12 @@ const arrayMultiplier=(num,array)=>{
 }
 
 let PMatrix=initPMatrix(p0,optimizationLengthScale);
-const measure = [1e-50,50.0e-6]
+// const measure = [1e-50,50.0e-6]
+const measure = [2e-7,2e-6];
 const err_cf = zeros(PMatrix.length,1);
 let p00 = PMatrix[0];
-const RMSEList = []
+const RMSEList = [];
+let p_c
 
 while (counter < MaxIter && err > Tol){
   for (let i = 0; i < PMatrix.length; i++) {
@@ -204,17 +241,25 @@ while (counter < MaxIter && err > Tol){
       wavelength_max:measure[1],
     }).RMSE;
   }
-  
-  let f_p=sortArray(err_cf);
 
-  PMatrix=updatePMatrix(f_p,PMatrix);
+
+  
+  let f_p = sortArray(err_cf);
+  // let oldP = PMatrix;
+
+  let P_tem =  updatePMatrix(f_p,PMatrix);
+
+  PMatrix = P_tem;
+
+
 
   // console.log(PMatrix);
 
   let p_s = PMatrix[0];
   let p_l = PMatrix[PMatrix.length-1];
   // console.log('pl:',p_l);
-  let p_nl =PMatrix[PMatrix.length-2];
+  // let p_nl =PMatrix[PMatrix.length-2];
+
 
   let f_s = f_p[0].value;
   let f_l = f_p[f_p.length-1].value;
@@ -252,10 +297,11 @@ while (counter < MaxIter && err > Tol){
 
   // console.log("f_p_r:",f_p_r);
 
-  let p_c
+
   if(f_p_r>=f_s && f_p_r<f_nl){
     // console.log(1);
     PMatrix[PMatrix.length-1]=p_r;
+
   }else if(f_p_r < f_s){
     // console.log(2);
     let p_e = mathjs.add(p_g,arrayMultiplier(x,mathjs.subtract(p_r, p_g)));
@@ -267,15 +313,23 @@ while (counter < MaxIter && err > Tol){
     }).RMSE;
     // console.log('fpe:',f_p_e);
     if(f_p_e < f_p_r){
+      // console.log(2.1);
       PMatrix[PMatrix.length-1]=p_e;
-    }else if(f_p_e >= f_p_r){
+    }
+    // else if(f_p_e >= f_p_r){
+      else{
+      // console.log(2.2);
       PMatrix[PMatrix.length-1]=p_r;
     }
   }else if(f_p_r >= f_nl){
     // console.log(3);
     if (f_p_r < f_l){
+      // console.log(3.1);
       p_c = mathjs.add(p_g,arrayMultiplier(r,mathjs.subtract(p_r,p_g)));
-    }else if(f_p_r > f_l){
+    }
+    // else if(f_p_r >= f_l){
+      else{
+      // console.log(3.2);
       p_c = mathjs.add(p_g,arrayMultiplier(r,mathjs.subtract(p_l,p_g))); 
     }
     let f_c= materialCurveFitting({
@@ -284,9 +338,15 @@ while (counter < MaxIter && err > Tol){
       wavelength_max:measure[1],
     }).RMSE;
     if (f_c <= f_l){
+      // console.log(3.3);
       PMatrix[PMatrix.length-1]=p_c;
-    }else if(f_c > f_l){
-      PMatrix[PMatrix.length-2]=mathjs.add(p_s,arrayMultiplier(sigma,mathjs.subtract(PMatrix[PMatrix.length-2],p_s)));
+    }
+    else{
+    // else if(f_c > f_l){
+      // console.log(3.4);
+      for(let i=1;i<PMatrix.length;i++){
+        PMatrix[i]=mathjs.add(p_s,arrayMultiplier(sigma,mathjs.subtract(PMatrix[i],p_s)));
+      }
     }
   }
 

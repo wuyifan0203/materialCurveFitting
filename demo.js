@@ -108,12 +108,15 @@ const materialCurveFitting = ({
     return {RMSE,weightedRMSE,RwList}
 };
 
-let rmse=materialCurveFitting({
-    wavelength_min: 0.2e-6,
-    wavelength_max: 2.0e-6,
-    weight: 1,
-}).RMSE
-// console.log(rmse);
+// (async  function() {
+    let rmse = materialCurveFitting({
+        wavelength_min: 0.2e-6,
+        wavelength_max: 2.0e-6,
+        weight: 1,
+    }).RMSE
+    // console.log(rmse);
+// })()
+
 
 
 module.exports = {materialCurveFitting};
